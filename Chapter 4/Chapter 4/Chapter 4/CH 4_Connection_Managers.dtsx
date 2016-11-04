@@ -1,0 +1,209 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/13/2012 5:32:48 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="PD5337"
+  DTS:CreatorName="PS\ddye"
+  DTS:DTSID="{11B85441-8421-4A79-A7DC-60348E977E4E}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH 4_Connection_Managers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{B9F1F546-EAC4-46DB-A590-EB27C1D311B6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(local)\SQL11]"
+      DTS:CreationName="SMOServer"
+      DTS:DTSID="{BD1104C5-7381-4019-8A0E-7CBCF36D1B4F}"
+      DTS:ObjectName="(local)\SQL11">
+      <DTS:ObjectData>
+        <SMOServerConnectionManager
+          ConnectionString="SqlServerName=(local)\SQL11;UseWindowsAuthentication=True;UserName=;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DQS Cleansing Connection Manager.localhost]"
+      DTS:CreationName="DQS"
+      DTS:DTSID="{C930D1B4-C4BA-403C-937D-B4B1FA993E56}"
+      DTS:ObjectName="DQS Cleansing Connection Manager.localhost">
+      <DTS:ObjectData>
+        <InnerObject>
+          <ServerName
+            Type="8"
+            Value="localhost" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{55F7D57F-F2C5-4929-A7C9-04677BDA3D49}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\zips.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZIP"
+              DTS:DTSID="{FE58C9D4-23FB-4C14-9D21-21805E92C2DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STATE"
+              DTS:DTSID="{06367640-A287-443B-B507-1E2FC20C86C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOWN"
+              DTS:DTSID="{8A44DFC0-9DD2-4450-AF75-D459AADC2C1D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAT"
+              DTS:DTSID="{FA6A4128-25C6-4966-BA34-C4D3040C2616}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LON"
+              DTS:DTSID="{88071DA4-39A6-46EB-97E9-CA6850A2F2B9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager]"
+      DTS:CreationName="HTTP"
+      DTS:DTSID="{E997D278-4BC2-4836-8543-91C35A2ED45C}"
+      DTS:ObjectName="HTTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://www.Domain.com/downloads/Sample.txt">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://www.Domain.com/downloads/Sample.txt">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAV3gintsJ0ESs4YYRxXFZ3gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACjuDgD7tyX2J1xWeUsmKttAAAAAASAAACgAAAAEAAAAOIazHhogFGgGNYzdWN2lhwIAAAAVfY+5cQTF7YUAAAAt90lKrIdAFOjqqUQLwlBc2gILH0</DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAV3gintsJ0ESs4YYRxXFZ3gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD8cMI4vkKN0NlMS/A/atEmAAAAAASAAACgAAAAEAAAAHFogElyZkMw3dqUkwbg7kcIAAAAPxZAsefNGuQUAAAAwv5HBGcaNGIdjPgUj2EI34WE85g</DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorksCube]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{079C919C-E169-4D42-9D2A-8DF7957AEC7A}"
+      DTS:ObjectName="localhost.AdventureWorksCube">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorksCube;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Message Queue Connection Manager]"
+      DTS:CreationName="MSMQ"
+      DTS:DTSID="{CE31320F-5DDE-4D05-B3A2-7E6C94C3DEFC}"
+      DTS:ObjectName="Message Queue Connection Manager">
+      <DTS:ObjectData>
+        <MsmqConnectionManager
+          ConnectionString=".\private$\SSIS11Test" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PD5337\RCO.SampleDatabase1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{98AC513C-5627-4A91-9C4F-1865B4AF1BC8}"
+      DTS:ObjectName="PD5337\RCO.SampleDatabase1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=SampleDatabase;Integrated Security=True;Application Name=&quot;SSIS-CH 4_Connection_Managers-{98AC513C-5627-4A91-9C4F-1865B4AF1BC8}PD5337\RCO.SampleDatabase1&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample]"
+      DTS:CreationName="SQLMOBILE"
+      DTS:DTSID="{44A8117A-1877-4127-9159-BEE37BB10A11}"
+      DTS:ObjectName="Sample">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=Sample;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAV3gintsJ0ESs4YYRxXFZ3gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACALhbhcp26//gxHrWFn8jXAAAAAASAAACgAAAAEAAAADvRIT0gfB2/SuekwlPdRFsYAAAAk+MrWAhl1916zAFlrmSqHb0DK79q66MaFAAAAAA+kuAZ+rJryi6ppU9AKBr81nM5</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{08D7F30B-937F-4791-A117-E5FB33089A64}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=localhost;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WMI Connection Manager]"
+      DTS:CreationName="WMI"
+      DTS:DTSID="{114DB52E-BA5C-41F3-8F21-CA75792F5C0E}"
+      DTS:ObjectName="WMI Connection Manager">
+      <DTS:ObjectData>
+        <WmiConnectionManager
+          ConnectionString="ServerName=\\localhost;Namespace=\root\cimv2;UseNtAuth=True;UserName=;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables />
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.AdventureWorksCube]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

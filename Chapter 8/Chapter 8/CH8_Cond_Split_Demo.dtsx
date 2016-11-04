@@ -1,0 +1,3051 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/1/2011 7:50:38 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SQL11"
+  DTS:CreatorName="SQL11\Admin"
+  DTS:DTSID="{010F5149-A156-437B-B63E-963F0D7F1355}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH8_Cond_Split_Demo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{7CB068B3-7307-4459-AEE6-B357BDCD5684}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destination Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5168EBA1-0AAD-4029-A62E-A4643C06774A}"
+      DTS:ObjectName="Destination Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\GameDestination.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameID"
+              DTS:DTSID="{51CC10A9-93D6-40E5-A6AD-9787679F1118}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameDate"
+              DTS:DTSID="{451051E3-8B89-42F2-A4E5-0AA8A1F8CFCD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameLocationID"
+              DTS:DTSID="{5F05A8FB-C398-4166-A720-66D67A065BD0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerTeamID"
+              DTS:DTSID="{89F5983B-D9D2-49A1-B0D6-0B2A9B369548}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerPoints"
+              DTS:DTSID="{96B9E4E5-1B34-4690-B3BC-89B6309698ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerYardsGained"
+              DTS:DTSID="{D2FACE0C-BB9F-4913-8786-E5D3859EDC64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerTurnovers"
+              DTS:DTSID="{5538FFCB-552D-4D67-8F71-EDE27497E434}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserTeamID"
+              DTS:DTSID="{2E4CE541-73D1-4F4C-825E-C6663EC76837}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserPoints"
+              DTS:DTSID="{1F5AB0CB-E2E0-4A00-82F3-EE12FC1D0C0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserYardsGained"
+              DTS:DTSID="{203D3D63-4C8B-44DB-BA09-D953349896EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserTurnover"
+              DTS:DTSID="{45779388-F194-40C0-90B2-56FD93510367}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TiedGameFlag"
+              DTS:DTSID="{C3A37223-72FE-4B8C-8D3D-5EE0797BB183}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostSeasonFlag"
+              DTS:DTSID="{47EE9253-8F2B-4D36-AB85-9DF53D6285A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameWeek"
+              DTS:DTSID="{B47D9557-BB76-409F-A4F6-882C074EB8F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerTeamName"
+              DTS:DTSID="{1506028F-60FE-459F-A77F-D246FAFD1C8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerTeamLocationID"
+              DTS:DTSID="{95979501-7357-4CEC-83B0-CB0AEBE0241B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserTeamName"
+              DTS:DTSID="{EF6B1D94-5FD6-47EE-82EF-3F2A2B179A62}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserTeamLocationID"
+              DTS:DTSID="{55E3FAE3-2AE9-4613-863A-BFA64F50F406}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{39E3721E-BAAD-4570-AB54-915BE3CE088F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{D9B24B7E-7EF9-486D-B379-23BC7FFEE0D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Elevation"
+              DTS:DTSID="{AD7BF193-243C-45AA-8FF4-D7FBB33A879E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DistanceFromWater"
+              DTS:DTSID="{E4EB849D-DF62-4E00-BA11-CEFAFBDCDA5A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NearestBodyOfWater"
+              DTS:DTSID="{07346C1E-31AF-47F4-BDE2-36D2A9BB4FC3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Game Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{09AB5DC2-45C1-4DFC-990F-707F7870F1FB}"
+      DTS:ObjectName="Game Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\Football_Game.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameID"
+              DTS:DTSID="{C2184E2A-4559-45ED-A39E-E08DE2D7AC2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameDate"
+              DTS:DTSID="{9B59506D-C2C2-4B12-B7CC-597DDE04AA3F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameLocationID"
+              DTS:DTSID="{1DA58DAB-B945-4A1D-B44E-1731D022EFB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerTeamID"
+              DTS:DTSID="{79D5C15F-BD7E-415B-85CC-0AC0B898D129}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerPoints"
+              DTS:DTSID="{F62BE449-EDAE-46A8-A495-EE7EB9BEB702}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerYardsGained"
+              DTS:DTSID="{E8FA0488-FCBF-420E-B8A3-B9BBBBF6035B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WinnerTurnovers"
+              DTS:DTSID="{6990DEB6-C44A-44E6-AB9B-EBADDE39024F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserTeamID"
+              DTS:DTSID="{F0117155-56F6-40AC-97C2-514FF22FB981}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserPoints"
+              DTS:DTSID="{8FAAF73E-3583-43AB-B86A-4B2A3E862FF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserYardsGained"
+              DTS:DTSID="{7E579DEB-74BD-4425-B16E-70D0E3CFED67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoserTurnover"
+              DTS:DTSID="{C7F12BF8-18BF-4321-AE58-F8AF61094D97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TiedGameFlag"
+              DTS:DTSID="{10314488-852D-4B0A-A056-AAEB85731F12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostSeasonFlag"
+              DTS:DTSID="{87E3A298-A3E6-463E-939D-06C9CD122D47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameWeek"
+              DTS:DTSID="{0A0967ED-1F0A-422F-9943-324DC3BF74FD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Location Cache Connection Manager]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{80A7F7A1-A815-4ADE-B463-868B113A0A45}"
+      DTS:ObjectName="Location Cache Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager>
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="3"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="LocationID"
+              DTS:DTSID="{F3767182-590F-4FC3-B3EF-7756AE4DC02B}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="129"
+              DTS:Length="100"
+              DTS:CodePage="1252"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{014952F6-F901-4424-A451-FF72F9285F28}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="129"
+              DTS:Length="2"
+              DTS:CodePage="1252"
+              DTS:ObjectName="State"
+              DTS:DTSID="{3A669CB0-5D82-4EB6-AE26-728F5081B5E9}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="5"
+              DTS:ObjectName="Elevation"
+              DTS:DTSID="{F3C8C4EB-DEC3-47E6-8390-8DB0128DA8DD}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="5"
+              DTS:ObjectName="DistanceFromWater"
+              DTS:DTSID="{EBC0CC76-035E-4976-A134-55ABFEE324D6}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="129"
+              DTS:Length="100"
+              DTS:CodePage="1252"
+              DTS:ObjectName="NearestBodyOfWater"
+              DTS:DTSID="{A702C9C0-E780-4FFD-A1F1-463DA60C47E9}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Location Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F80C54E1-467C-4448-A02D-E33C5CB0B4CD}"
+      DTS:ObjectName="Location Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\Football_Location.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LocationID"
+              DTS:DTSID="{FFDCC664-C4CE-4429-A9C5-118F3192D335}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{7E913262-0332-4F3B-AF0F-2283D19A38E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{4A45A7F0-4F68-47AC-B3AE-0AC9A9A96FA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Elevation"
+              DTS:DTSID="{285589BC-5D04-478D-9E44-1F39F7CB366C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DistanceFromWater"
+              DTS:DTSID="{C810E67A-2883-4E06-A922-B29275C04E02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NearestBodyOfWater"
+              DTS:DTSID="{10BAA5F4-FA20-4BDD-9C33-18BFBBF31A39}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample Database]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A011C0EE-9ED0-47CB-AB22-47D8EF81A604}"
+      DTS:ObjectName="Sample Database">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=SampleDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Cache Location"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{46B42FF0-17D4-4551-9B71-6D919786DF6D}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Cache Location"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Cache Location\CHT - Cache Location Data"
+              componentClassID="{BF818E79-2C1C-410D-ADEA-B2D1A04FED01}"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="CHT - Cache Location Data"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Cache Location\CHT - Cache Location Data.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Location Cache Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Location Cache Connection Manager]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input].Columns[LocationID]"
+                      cachedDataType="i4"
+                      cachedName="LocationID"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[LocationID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">LocationID</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityName"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[CityName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">CityName</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">State</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input].Columns[Elevation]"
+                      cachedDataType="r8"
+                      cachedName="Elevation"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[Elevation]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">Elevation</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input].Columns[DistanceFromWater]"
+                      cachedDataType="r8"
+                      cachedName="DistanceFromWater"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[DistanceFromWater]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">DistanceFromWater</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input].Columns[NearestBodyOfWater]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="NearestBodyOfWater"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[NearestBodyOfWater]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">NearestBodyOfWater</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Cache Location\CHT - Cache Location Data.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Cache Location\FFS - Get Location Data"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FFS - Get Location Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Cache Location\FFS - Get Location Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Location Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Location Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[LocationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[LocationID]"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[LocationID]"
+                      name="LocationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                      length="100"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[Elevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[Elevation]"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[Elevation]"
+                      name="Elevation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[DistanceFromWater]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[DistanceFromWater]"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[DistanceFromWater]"
+                      name="DistanceFromWater"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[NearestBodyOfWater]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[NearestBodyOfWater]"
+                      length="100"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].Columns[NearestBodyOfWater]"
+                      name="NearestBodyOfWater"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[LocationID]"
+                      dataType="i4"
+                      name="LocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[Elevation]"
+                      dataType="r8"
+                      name="Elevation" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[DistanceFromWater]"
+                      dataType="r8"
+                      name="DistanceFromWater" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output].ExternalColumns[NearestBodyOfWater]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NearestBodyOfWater" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Cache Location.Paths[Flat File Source Output]"
+              endId="Package\DFL - Cache Location\CHT - Cache Location Data.Inputs[Cache Input]"
+              name="Flat File Source Output"
+              startId="Package\DFL - Cache Location\FFS - Get Location Data.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Lookup Teams &amp; Locations"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4CC17B31-3192-40F7-9699-419951267551}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Lookup Teams &amp; Locations"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CSP - Filter Out Post-Season"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Inputs[Conditional Split Input].Columns[GameWeek]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GameWeek"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameWeek]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Regular Season Games]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Regular Season Games"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameWeek]} == "Regular Season"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">GameWeek == "Regular Season"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Post Season Games]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Post Season Games"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Game Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FootballGames]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[GameID]"
+                      cachedDataType="i4"
+                      cachedName="GameID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[GameDate]"
+                      cachedDataType="date"
+                      cachedName="GameDate"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameDate]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameDate]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[GameLocationID]"
+                      cachedDataType="i4"
+                      cachedName="GameLocationID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameLocationID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[WinnerTeamID]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTeamID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTeamID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTeamID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[WinnerPoints]"
+                      cachedDataType="i4"
+                      cachedName="WinnerPoints"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerPoints]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerPoints]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[WinnerYardsGained]"
+                      cachedDataType="i4"
+                      cachedName="WinnerYardsGained"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerYardsGained]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerYardsGained]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[WinnerTurnovers]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTurnovers"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTurnovers]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTurnovers]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[LoserTeamID]"
+                      cachedDataType="i4"
+                      cachedName="LoserTeamID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTeamID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTeamID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[LoserPoints]"
+                      cachedDataType="i4"
+                      cachedName="LoserPoints"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserPoints]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserPoints]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[LoserYardsGained]"
+                      cachedDataType="i4"
+                      cachedName="LoserYardsGained"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserYardsGained]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserYardsGained]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[LoserTurnover]"
+                      cachedDataType="i4"
+                      cachedName="LoserTurnover"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTurnover]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTurnover]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[TiedGameFlag]"
+                      cachedDataType="bool"
+                      cachedName="TiedGameFlag"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[TiedGameFlag]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[TiedGameFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[PostSeasonFlag]"
+                      cachedDataType="bool"
+                      cachedName="PostSeasonFlag"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[PostSeasonFlag]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[PostSeasonFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[GameWeek]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GameWeek"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameWeek]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameWeek]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[WinnerTeamName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WinnerTeamName"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTeamName]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamName]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[WinnerTeamLocationID]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTeamLocationID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTeamLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamLocationID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[LoserTeamName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LoserTeamName"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTeamName]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamName]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[LoserTeamLocationID]"
+                      cachedDataType="i4"
+                      cachedName="LoserTeamLocationID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTeamLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamLocationID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[Elevation]"
+                      cachedDataType="r8"
+                      cachedName="Elevation"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[Elevation]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[Elevation]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[DistanceFromWater]"
+                      cachedDataType="r8"
+                      cachedName="DistanceFromWater"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[DistanceFromWater]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[DistanceFromWater]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].Columns[NearestBodyOfWater]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="NearestBodyOfWater"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[NearestBodyOfWater]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[NearestBodyOfWater]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameID]"
+                      dataType="i4"
+                      name="GameID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameDate]"
+                      dataType="dbTimeStamp"
+                      name="GameDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameLocationID]"
+                      dataType="i4"
+                      name="GameLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTeamID]"
+                      dataType="i4"
+                      name="WinnerTeamID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerPoints]"
+                      dataType="i4"
+                      name="WinnerPoints" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerYardsGained]"
+                      dataType="i4"
+                      name="WinnerYardsGained" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTurnovers]"
+                      dataType="i4"
+                      name="WinnerTurnovers" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTeamID]"
+                      dataType="i4"
+                      name="LoserTeamID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserPoints]"
+                      dataType="i4"
+                      name="LoserPoints" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserYardsGained]"
+                      dataType="i4"
+                      name="LoserYardsGained" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTurnover]"
+                      dataType="i4"
+                      name="LoserTurnover" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[TiedGameFlag]"
+                      dataType="bool"
+                      name="TiedGameFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[PostSeasonFlag]"
+                      dataType="bool"
+                      name="PostSeasonFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[GameWeek]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GameWeek" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTeamName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WinnerTeamName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[WinnerTeamLocationID]"
+                      dataType="i4"
+                      name="WinnerTeamLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTeamName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LoserTeamName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[LoserTeamLocationID]"
+                      dataType="i4"
+                      name="LoserTeamLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[Elevation]"
+                      dataType="r8"
+                      name="Elevation" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[DistanceFromWater]"
+                      dataType="r8"
+                      name="DistanceFromWater" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input].ExternalColumns[NearestBodyOfWater]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NearestBodyOfWater" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="FFD - Save to File">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destination Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destination Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[GameID]"
+                      cachedDataType="i4"
+                      cachedName="GameID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[GameDate]"
+                      cachedDataType="date"
+                      cachedName="GameDate"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameDate]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameDate]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[GameLocationID]"
+                      cachedDataType="i4"
+                      cachedName="GameLocationID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameLocationID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[WinnerTeamID]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTeamID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTeamID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTeamID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[WinnerPoints]"
+                      cachedDataType="i4"
+                      cachedName="WinnerPoints"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerPoints]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerPoints]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[WinnerYardsGained]"
+                      cachedDataType="i4"
+                      cachedName="WinnerYardsGained"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerYardsGained]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerYardsGained]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[WinnerTurnovers]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTurnovers"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTurnovers]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTurnovers]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[LoserTeamID]"
+                      cachedDataType="i4"
+                      cachedName="LoserTeamID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTeamID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTeamID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[LoserPoints]"
+                      cachedDataType="i4"
+                      cachedName="LoserPoints"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserPoints]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserPoints]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[LoserYardsGained]"
+                      cachedDataType="i4"
+                      cachedName="LoserYardsGained"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserYardsGained]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserYardsGained]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[LoserTurnover]"
+                      cachedDataType="i4"
+                      cachedName="LoserTurnover"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTurnover]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTurnover]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[TiedGameFlag]"
+                      cachedDataType="bool"
+                      cachedName="TiedGameFlag"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[TiedGameFlag]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[TiedGameFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[PostSeasonFlag]"
+                      cachedDataType="bool"
+                      cachedName="PostSeasonFlag"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[PostSeasonFlag]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[PostSeasonFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[GameWeek]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GameWeek"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameWeek]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameWeek]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[WinnerTeamName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WinnerTeamName"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTeamName]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamName]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[WinnerTeamLocationID]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTeamLocationID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTeamLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamLocationID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[LoserTeamName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LoserTeamName"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTeamName]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamName]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[LoserTeamLocationID]"
+                      cachedDataType="i4"
+                      cachedName="LoserTeamLocationID"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTeamLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamLocationID]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[Elevation]"
+                      cachedDataType="r8"
+                      cachedName="Elevation"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[Elevation]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[Elevation]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[DistanceFromWater]"
+                      cachedDataType="r8"
+                      cachedName="DistanceFromWater"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[DistanceFromWater]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[DistanceFromWater]" />
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].Columns[NearestBodyOfWater]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="NearestBodyOfWater"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[NearestBodyOfWater]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[NearestBodyOfWater]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameID]"
+                      dataType="i4"
+                      name="GameID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameDate]"
+                      dataType="date"
+                      name="GameDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameLocationID]"
+                      dataType="i4"
+                      name="GameLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTeamID]"
+                      dataType="i4"
+                      name="WinnerTeamID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerPoints]"
+                      dataType="i4"
+                      name="WinnerPoints" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerYardsGained]"
+                      dataType="i4"
+                      name="WinnerYardsGained" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTurnovers]"
+                      dataType="i4"
+                      name="WinnerTurnovers" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTeamID]"
+                      dataType="i4"
+                      name="LoserTeamID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserPoints]"
+                      dataType="i4"
+                      name="LoserPoints" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserYardsGained]"
+                      dataType="i4"
+                      name="LoserYardsGained" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTurnover]"
+                      dataType="i4"
+                      name="LoserTurnover" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[TiedGameFlag]"
+                      dataType="bool"
+                      name="TiedGameFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[PostSeasonFlag]"
+                      dataType="bool"
+                      name="PostSeasonFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[GameWeek]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GameWeek" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTeamName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WinnerTeamName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[WinnerTeamLocationID]"
+                      dataType="i4"
+                      name="WinnerTeamLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTeamName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LoserTeamName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[LoserTeamLocationID]"
+                      dataType="i4"
+                      name="LoserTeamLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[Elevation]"
+                      dataType="r8"
+                      name="Elevation" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[DistanceFromWater]"
+                      dataType="r8"
+                      name="DistanceFromWater" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input].ExternalColumns[NearestBodyOfWater]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NearestBodyOfWater" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FFS - Get Game Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Game Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Game Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameID]"
+                      name="GameID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameDate]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameDate]"
+                      name="GameDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameLocationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameLocationID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameLocationID]"
+                      name="GameLocationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTeamID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerTeamID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTeamID]"
+                      name="WinnerTeamID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerPoints]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerPoints]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerPoints]"
+                      name="WinnerPoints"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerYardsGained]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerYardsGained]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerYardsGained]"
+                      name="WinnerYardsGained"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTurnovers]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerTurnovers]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTurnovers]"
+                      name="WinnerTurnovers"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTeamID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserTeamID]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTeamID]"
+                      name="LoserTeamID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserPoints]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserPoints]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserPoints]"
+                      name="LoserPoints"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserYardsGained]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserYardsGained]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserYardsGained]"
+                      name="LoserYardsGained"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTurnover]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserTurnover]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTurnover]"
+                      name="LoserTurnover"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[TiedGameFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[TiedGameFlag]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[TiedGameFlag]"
+                      name="TiedGameFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[PostSeasonFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[PostSeasonFlag]"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[PostSeasonFlag]"
+                      name="PostSeasonFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameWeek]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameWeek]"
+                      length="50"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameWeek]"
+                      name="GameWeek"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameID]"
+                      dataType="i4"
+                      name="GameID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameDate]"
+                      dataType="date"
+                      name="GameDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameLocationID]"
+                      dataType="i4"
+                      name="GameLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerTeamID]"
+                      dataType="i4"
+                      name="WinnerTeamID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerPoints]"
+                      dataType="i4"
+                      name="WinnerPoints" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerYardsGained]"
+                      dataType="i4"
+                      name="WinnerYardsGained" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[WinnerTurnovers]"
+                      dataType="i4"
+                      name="WinnerTurnovers" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserTeamID]"
+                      dataType="i4"
+                      name="LoserTeamID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserPoints]"
+                      dataType="i4"
+                      name="LoserPoints" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserYardsGained]"
+                      dataType="i4"
+                      name="LoserYardsGained" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[LoserTurnover]"
+                      dataType="i4"
+                      name="LoserTurnover" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[TiedGameFlag]"
+                      dataType="bool"
+                      name="TiedGameFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[PostSeasonFlag]"
+                      dataType="bool"
+                      name="PostSeasonFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].ExternalColumns[GameWeek]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GameWeek" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Location"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from () [refTable]
+where [refTable].[LocationID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="LocationID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CityName" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="State" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Elevation" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistanceFromWater" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NearestBodyOfWater" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameLocationID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Location Cache Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Location Cache Connection Manager]"
+                  description="Connection manager used to access lookup data."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Inputs[Lookup Input].Columns[GameLocationID]"
+                      cachedDataType="i4"
+                      cachedName="GameLocationID"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[GameLocationID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LocationID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CityName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="2"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">State</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[Elevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[Elevation]"
+                      name="Elevation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Elevation</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[DistanceFromWater]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[DistanceFromWater]"
+                      name="DistanceFromWater"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DistanceFromWater</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[NearestBodyOfWater]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output].Columns[NearestBodyOfWater]"
+                      name="NearestBodyOfWater"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">NearestBodyOfWater</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Loser"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[FootballTeam]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[FootballTeam]) [refTable]
+where [refTable].[TeamID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TeamID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TeamName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TeamLocationID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTeamID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Inputs[Lookup Input].Columns[LoserTeamID]"
+                      cachedDataType="i4"
+                      cachedName="LoserTeamID"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[LoserTeamID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">TeamID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamName]"
+                      name="LoserTeamName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TeamName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamLocationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output].Columns[LoserTeamLocationID]"
+                      name="LoserTeamLocationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TeamLocationID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Winner"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[FootballTeam]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[FootballTeam]) [refTable]
+where [refTable].[TeamID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TeamID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TeamName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TeamLocationID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTeamID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Inputs[Lookup Input].Columns[WinnerTeamID]"
+                      cachedDataType="i4"
+                      cachedName="WinnerTeamID"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output].Columns[WinnerTeamID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">TeamID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamName]"
+                      name="WinnerTeamName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TeamName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamLocationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output].Columns[WinnerTeamLocationID]"
+                      name="WinnerTeamLocationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TeamLocationID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="MUL - Send to Multiple Destinations">
+              <inputs>
+                <input
+                  refId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Flat File Source Output]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Inputs[Lookup Input]"
+              name="Flat File Source Output"
+              startId="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Lookup Match Output2]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Lookup Match Output1]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Lookup Match Output]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\LKP - Location.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Multicast Output 1]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Multicast Output 2]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File.Inputs[Flat File Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\DFL - Lookup Teams &amp; Locations.Paths[Regular Season Games]"
+              endId="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations.Inputs[Multicast Input 1]"
+              name="Regular Season Games"
+              startId="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season.Outputs[Regular Season Games]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9D9D7337-38B3-475F-8836-8579EBD832AC}"
+      DTS:From="Package\DFL - Cache Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFL - Lookup Teams &amp; Locations" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159.2,62.4"
+          Id="Package\DFL - Cache Location"
+          TopLeft="56,107" />
+        <NodeLayout
+          Size="159.2,62.4"
+          Id="Package\DFL - Lookup Teams &amp; Locations"
+          TopLeft="255,106" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="215.276666666667,137.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.7233333333334,0"
+              Start="0,0"
+              End="32.2233333333334,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.2233333333334,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFL - Cache Location">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165.943333333334,58"
+          Id="Package\DFL - Cache Location\FFS - Get Location Data"
+          TopLeft="68,45" />
+        <NodeLayout
+          Size="165.943333333334,58"
+          Id="Package\DFL - Cache Location\CHT - Cache Location Data"
+          TopLeft="67,133" />
+        <EdgeLayout
+          Id="Package\DFL - Cache Location.Paths[Flat File Source Output]"
+          TopLeft="150.471666666667,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFL - Lookup Teams &amp; Locations">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\FFS - Get Game Data"
+          TopLeft="15.75,30.5" />
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\LKP - Location"
+          TopLeft="223,193.631469115192" />
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser"
+          TopLeft="15.75,193.631469115192" />
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner"
+          TopLeft="15.75,109" />
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data"
+          TopLeft="413.75,193.631469115192" />
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Lookup Match Output]"
+          TopLeft="173.693333333334,219.131469115192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="49.306666666666,0"
+              Start="0,0"
+              End="41.806666666666,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.806666666666,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Flat File Source Output]"
+          TopLeft="94.721666666667,81.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.5"
+              Start="0,0"
+              End="0,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Lookup Match Output1]"
+          TopLeft="94.721666666667,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33.631469115192"
+              Start="0,0"
+              End="0,26.131469115192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.131469115192" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\CSP - Filter Out Post-Season"
+          TopLeft="223,109" />
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Lookup Match Output2]"
+          TopLeft="301.971666666667,193.631469115192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,-33.631469115192"
+              Start="0,0"
+              End="0,-26.131469115192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-26.131469115192" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-47.19138671875,-17.870422057596,94.3827734375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\MUL - Send to Multiple Destinations"
+          TopLeft="507,109" />
+        <NodeLayout
+          Size="157.943333333334,51"
+          Id="Package\DFL - Lookup Teams &amp; Locations\FFD - Save to File"
+          TopLeft="630,193.631469115192" />
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Regular Season Games]"
+          TopLeft="380.943333333334,134.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="126.056666666666,0"
+              Start="0,0"
+              End="118.556666666666,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="118.556666666666,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.95575520833296,5,100.64515625,9.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Multicast Output 1]"
+          TopLeft="585.971666666667,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-93.25,33.631469115192"
+              Start="0,0"
+              End="-93.25,26.131469115192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.815734557596" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.815734557596"
+                    Point2="0,16.815734557596"
+                    Point3="-4,16.815734557596" />
+                  <mssgle:LineSegment
+                    End="-89.25,16.815734557596" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.25,16.815734557596"
+                    Point2="-93.25,16.815734557596"
+                    Point3="-93.25,20.815734557596" />
+                  <mssgle:LineSegment
+                    End="-93.25,26.131469115192" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Lookup Teams &amp; Locations.Paths[Multicast Output 2]"
+          TopLeft="610.962222222223,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="98.0094444444444,33.631469115192"
+              Start="0,0"
+              End="98.0094444444444,26.131469115192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.65495404820737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.65495404820737"
+                    Point2="0,13.6549540482074"
+                    Point3="4,13.6549540482074" />
+                  <mssgle:LineSegment
+                    End="94.0094444444444,13.6549540482074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.0094444444444,13.6549540482074"
+                    Point2="98.0094444444444,13.6549540482074"
+                    Point3="98.0094444444444,17.6549540482074" />
+                  <mssgle:LineSegment
+                    End="98.0094444444444,26.131469115192" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Lookup Teams &amp; Locations\LKP - Winner">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FootballTeam]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Lookup Teams &amp; Locations\DST - Save Game Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Lookup Teams &amp; Locations\LKP - Location">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Lookup Teams &amp; Locations\LKP - Loser">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FootballTeam]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

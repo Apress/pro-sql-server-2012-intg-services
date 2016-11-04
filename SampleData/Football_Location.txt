@@ -1,0 +1,40 @@
+LocationID	CityName	State	Elevation	DistanceFromWater	NearestBodyOfWater
+1	Atlanta	GA	330.0984	398.4	Atlantic Ocean
+2	Detroit	MI	182.88	27.2	Lake Erie
+3	Houston	TX	13.1064	39.2	Atlantic Ocean
+4	Jacksonville	FL	4.8768	36.8	Atlantic Ocean
+5	Miami	FL	1.8288	3.84	Atlantic Ocean
+6	Minneapolis	MN	256.032	243.2	Lake Superior
+7	New Orleans	LA	0.762	25.6	Atlantic Ocean
+8	Pasadena	CA	263.0424	38.4	Pacific Ocean
+9	Phoenix	AZ	340.4616	339.2	Pacific Ocean
+10	San Diego	CA	6.096	3.2	Pacific Ocean
+11	Stanford	CA	22.86	4.96	Pacific Ocean
+12	Tampa	FL	14.6304	2.08	Tampa Bay
+13	Baltimore	MD	10	18.08	Atlantic Ocean
+14	Boston	MA	43	3.36	Atlantic Ocean
+15	Brooklyn	NY	25.9	9.12	Atlantic Ocean
+16	Buffalo	NY	183	3.2	Lake Erie
+17	Charlotte	NC	229	268.8	Atlantic Ocean
+18	Chicago	IL	182	1.12	Lake Michigan
+19	Cincinnati	OH	147	300.8	Lake Erie
+20	Cleveland	OH	199	0.16	Lake Erie
+21	Dallas	TX	131	459.2	Atlantic Ocean
+22	Denver	CO	1609	1478.4	Atlantic Ocean
+23	East Rutherford	NJ	1	36.48	Atlantic Ocean
+24	Foxborough	MA	0	51.68	Atlantic Ocean
+25	Glendale	AZ	351	331.2	Pacific Ocean
+26	Green Bay	WI	177	2.88	Lake Michigan
+27	Indianapolis	IN	218	220.8	Lake Michigan
+28	Kansas City	MO	277	784	Lake Michigan
+29	Los Angeles	CA	71	23.04	Pacific Ocean
+30	Manhattan	NY	10	15.52	Atlantic Ocean
+31	Memphis	TN	103	961.6	Atlantic Ocean
+32	Nashville	TN	182	790.4	Atlantic Ocean
+33	Oakland	CA	12.8	4.32	Pacific Ocean
+34	Philadelphia	PA	12	62.4	Atlantic Ocean
+35	Pittsburgh	PA	67.3	188.8	Lake Erie
+36	San Francisco	CA	16	3.84	Pacific Ocean
+37	Seattle	WA	16	1.92	Pacific Ocean
+38	St Louis	MO	142	441.6	Lake Michigan
+39	Washington	DC	63	46.4	Atlantic Ocean

@@ -1,0 +1,1151 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/16/2011 7:19:38 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SQL11"
+  DTS:CreatorName="SQL11\Admin"
+  DTS:DTSID="{0B351A3A-271F-4454-AF55-21B2B59C9194}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH10_Apress_Simple_Script_Task"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{021F56DC-F5EA-4A6B-B943-FBD064AF8AEC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SAMPLE_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{342CA90B-16F6-4805-877D-EC2CEF998EBD}"
+      DTS:ObjectName="SAMPLE_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=SampleDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ZIP Code Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FAF4B8B8-32E3-4EE1-8906-4897D5C1EFA6}"
+      DTS:ObjectName="ZIP Code Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\ZIP-Out.txt.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZIP"
+              DTS:DTSID="{7B71AE93-58F3-470A-AA97-CA71E2EE7B0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{D4A2EEBA-4FAD-48B6-A48D-49DC24A8EFBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Town"
+              DTS:DTSID="{7EAF4C99-8133-410B-9ECE-90D25BE7185A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Lat"
+              DTS:DTSID="{C32A52C7-40D2-4DED-86C5-C61682B06016}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Lon"
+              DTS:DTSID="{BBC278FE-34B6-455F-92BB-7124E5522D40}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9A5ED20-9CD1-48C0-B21C-8D8093197F25}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="State">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Get ZIP Code Data"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E4044BEE-E206-494B-A44A-F476E96F8773}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Get ZIP Code Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="FFD - Output ZIP Code Data">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ZIP Code Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[ZIP Code Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].Columns[ZIP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ZIP"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[ZIP]"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[ZIP]" />
+                    <inputColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].Columns[Town]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Town"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[Town]"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Town]" />
+                    <inputColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].Columns[Lat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Lat"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[Lat]"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Lat]" />
+                    <inputColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].Columns[Lon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Lon"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[Lon]"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Lon]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[ZIP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ZIP" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[Town]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Town" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[Lat]"
+                      dataType="r8"
+                      name="Lat" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input].ExternalColumns[Lon]"
+                      dataType="r8"
+                      name="Lon" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Get ZIP Code Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ZIP,
+  State,
+  Town,
+  Lat,
+  Lon
+FROM dbo.ZIP
+WHERE State = ?;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0",{D9A5ED20-9CD1-48C0-B21C-8D8093197F25};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SAMPLE_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SAMPLE_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[ZIP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[ZIP]"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[ZIP]"
+                      name="ZIP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Town]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[Town]"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Town]"
+                      name="Town"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Lat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[Lat]"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Lat]"
+                      name="Lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Lon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[Lon]"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].Columns[Lon]"
+                      name="Lon"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[ZIP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZIP" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[Town]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Town" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[Lat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Lat" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output].ExternalColumns[Lon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Lon" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[ZIP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[ZIP]"
+                      name="ZIP" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[Town]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[Town]"
+                      name="Town" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[Lat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[Lat]"
+                      name="Lat" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[Lon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[Lon]"
+                      name="Lon" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Get ZIP Code Data.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SCT - Set State"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Script Task"
+      DTS:DTSID="{06244CBC-4655-4E83-B74B-334CEC23ED87}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SCT - Set State"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_ab23c7f2534d47459000c7bfe5e99f2e"
+          VSTAMajorVersion="3"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadWriteVariables="User::State">
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties.Settings.get_Default():ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties.Sett" +
+    "ings")]
+
+namespace ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties
+{
+
+
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
+    {
+
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+
+        public static Settings Default
+        {
+            get
+            {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="st_ab23c7f2534d47459000c7bfe5e99f2e.csproj"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj</RootNamespace>
+    <AssemblyName>ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj</AssemblyName>
+    <ProjectGuid>{550E0E7E-E067-4D44-9448-E2A77D212EAE}</ProjectGuid>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="#HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\9.0\InstallDir#\devenv.exe" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST110</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[/*
+   Microsoft SQL Server Integration Services Script Task
+   Write scripts using Microsoft Visual C# 2008.
+   The ScriptMain is the entry point class of the script.
+*/
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+
+namespace ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj
+{
+    [Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+    public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+    {
+
+        #region VSTA generated code
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+        public void Main()
+        {
+            // TODO: Add your code here
+            Dts.TaskResult = (int)ScriptResults.Success;
+            Dts.Variables["User::State"].Value = "LA";
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:NoContent>Reference;Import;Folder</msb:NoContent>
+		<msb:ProjectId>{8816A74D-F4D8-47BC-8C38-9A5075A8C668}</msb:ProjectId>
+		<msb:DisplayName>st_ab23c7f2534d47459000c7bfe5e99f2e</msb:DisplayName>
+		<msb:CodeName>st_ab23c7f2534d47459000c7bfe5e99f2e</msb:CodeName>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="ScriptMain.cs"/>
+		<msb:Project Include="st_ab23c7f2534d47459000c7bfe5e99f2e.csproj"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj")]
+[assembly: AssemblyCopyright("Copyright @ Microsoft 2011")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties
+{
+
+
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources
+    {
+
+        private static global::System.Resources.ResourceManager resourceMan;
+
+        private static global::System.Globalization.CultureInfo resourceCulture;
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources()
+        {
+        }
+
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if ((resourceMan == null))
+                {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
+                return resourceCulture;
+            }
+            set
+            {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_ab23c7f2534d47459000c7bfe5e99f2e.csproj.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEaqKVAAAAAAAAAAAOAAAiELAQgAABAAAAAIAAAAAAAADi4A
+AAAgAAAAQAAAAABAAAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAALQtAABXAAAAAEAAAJAEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAFA4AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAJAEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADw
+LQAAAAAAAEgAAAACAAUAqCEAAAwMAAABAAAAAAAAAPAgAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKA4AAAoqEzADAC0AAAABAAARfgEAAAQtIHIBAABw0AIA
+AAIoDwAACm8QAAAKcxEAAAoKBoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKi5zBgAA
+BoADAAAEKh4CKBQAAAoqsgIoFgAAChZvFwAACgIoFgAACm8YAAAKcoEAAHBvGQAACnKZAABwbxoA
+AAoqHgIoGwAACiq0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFk
+ZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5
+VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNl
+dAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBs
+AAAAuAMAACN+AAAkBAAAwAUAACNTdHJpbmdzAAAAAOQJAACgAAAAI1VTAIQKAAAQAAAAI0dVSUQA
+AACUCgAAeAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6JTMAFgAAAQAAAB0AAAAFAAAABgAA
+AAkAAAABAAAAGwAAAAIAAAAPAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAAoA
+AQAAAAAABgDWAM8ACgDyAN0ADgBSASkBBgBuAc8ABgCEAXMBBgC1AaABBgBsAlICBgCXAoUCBgCu
+AoUCBgDLAoUCBgDqAoUCBgADA4UCBgAcA4UCBgA3A4UCBgBSA4UCBgBrA4UCBgCkA4QDBgDEA4QD
+BgD1A+IDBgASBM8ABgAXBM8ABgA7BIUCCgBnBFEECgCABFEEBgCVBIQDDgC3BCkBDgDZBCkBEgBB
+BSEFEgBZBSEFAAAAAAEAAAAAAAEAAQAAABAAOQBDAAUAAQABAAABEAB5AEMACQADAAUAAQAQAIIA
+jQANAAQACAADAQAAuAAAABEABAAKABEAlAETABEAwQEXABEACwI5AAYGNAJHAFaAPAJKAFaARAJK
+AFAgAAAAAIMY0QEbAAEAWCAAAAAAkwjXAR8AAQCRIAAAAACTCOsBJAABAJggAAAAAJMI9wEpAAEA
+oCAAAAAAlggbAj0AAgCzIAAAAACGGNEBGwACAKcgAAAAAJEYsASJAAIAuyAAAAAAhgAvAhsAAgDo
+IAAAAACGGNEBGwACAAAAAQBMAjkA0QFYAEEA0QFYAEkA0QFYAFEA0QFYAFkA0QFYAGEA0QFYAGkA
+0QFYAHEA0QFYAHkA0QFYAIEA0QFYAIkA0QFdAJEA0QEbAJkA0QEbAAkA0QEbAKEAKQRiAKEARARp
+ACkA0QFuALkA0QF6AMkA0QEbABEA0QEbANEA0QEbABkA6wSNANkA8wRdANkASwWSAOEAYgWXAOkA
+awWdABkA0QEbAAgAFABOAAgAGABTACkAkwCAAC4AGwAaAS4AIwAaAS4AYwBYAS4ACwCiAC4AEwDq
+AC4AMwDqAC4AKwAgAS4AOwAvAS4AQwAaAS4AWwBPAUMAawBTAEkAkwCAAGEAmwBTAIMAqwBTAHUA
+AgABAAMAAwAAAIQBLwAAAAMCNAAAACcCQgACAAIAAwACAAMABQABAAQABQACAAUABwAEgAAAAQAA
+AAASO5AAAAAAAACNAAAABAAAAAAAAAAAAAAAAQDGAAAAAAAEAAAAAAAAAAAAAAABAM8AAAAAAAsA
+AAAAAAAAAAAAAAoACgEAAAAACwAAAAAAAAAAAAAACgACBQAAAAAAAAAAAQAAAHUFAAAFAAQAAAAA
+AAA8TW9kdWxlPgBTVF9hYjIzYzdmMjUzNGQ0NzQ1OTAwMGM3YmZlNWU5OWYyZS5jc3Byb2ouZGxs
+AFJlc291cmNlcwBTVF9hYjIzYzdmMjUzNGQ0NzQ1OTAwMGM3YmZlNWU5OWYyZS5jc3Byb2ouUHJv
+cGVydGllcwBTZXR0aW5ncwBTY3JpcHRNYWluAFNUX2FiMjNjN2YyNTM0ZDQ3NDU5MDAwYzdiZmU1
+ZTk5ZjJlLmNzcHJvagBTY3JpcHRSZXN1bHRzAG1zY29ybGliAFN5c3RlbQBPYmplY3QAU3lzdGVt
+LkNvbmZpZ3VyYXRpb24AQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UATWljcm9zb2Z0LlNxbFNlcnZl
+ci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sAVlNU
+QVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAEVudW0AU3lzdGVtLlJlc291cmNlcwBSZXNvdXJjZU1h
+bmFnZXIAcmVzb3VyY2VNYW4AU3lzdGVtLkdsb2JhbGl6YXRpb24AQ3VsdHVyZUluZm8AcmVzb3Vy
+Y2VDdWx0dXJlAC5jdG9yAGdldF9SZXNvdXJjZU1hbmFnZXIAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1
+cmUAQ3VsdHVyZQBkZWZhdWx0SW5zdGFuY2UAZ2V0X0RlZmF1bHQARGVmYXVsdABNYWluAHZhbHVl
+X18AU3VjY2VzcwBGYWlsdXJlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVGFyZ2V0
+RnJhbWV3b3JrQXR0cmlidXRlAFN5c3RlbS5SZWZsZWN0aW9uAEFzc2VtYmx5VGl0bGVBdHRyaWJ1
+dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRy
+aWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBB
+c3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBBc3Nl
+bWJseUN1bHR1cmVBdHRyaWJ1dGUAQXNzZW1ibHlWZXJzaW9uQXR0cmlidXRlAFN5c3RlbS5SdW50
+aW1lLkNvbXBpbGVyU2VydmljZXMAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBSdW50
+aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBTeXN0ZW0uRGlhZ25vc3RpY3MARGVidWdnZXJOb25V
+c2VyQ29kZUF0dHJpYnV0ZQBUeXBlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxl
+AEFzc2VtYmx5AGdldF9Bc3NlbWJseQBTeXN0ZW0uQ29tcG9uZW50TW9kZWwARWRpdG9yQnJvd3Nh
+YmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmli
+dXRlAC5jY3RvcgBTU0lTU2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAU2NyaXB0T2JqZWN0
+TW9kZWwAZ2V0X0R0cwBzZXRfVGFza1Jlc3VsdABNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWRE
+VFMATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBWYXJpYWJsZXMAZ2V0X1ZhcmlhYmxl
+cwBWYXJpYWJsZQBnZXRfSXRlbQBzZXRfVmFsdWUAU1RfYWIyM2M3ZjI1MzRkNDc0NTkwMDBjN2Jm
+ZTVlOTlmMmUuY3Nwcm9qLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwAAAH9TAFQAXwBh
+AGIAMgAzAGMANwBmADIANQAzADQAZAA0ADcANAA1ADkAMAAwADAAYwA3AGIAZgBlADUAZQA5ADkA
+ZgAyAGUALgBjAHMAcAByAG8AagAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBj
+AGUAcwAAF1UAcwBlAHIAOgA6AFMAdABhAHQAZQAABUwAQQAAAAHFTilzvzVFh8LE+TFj4VoACLd6
+XFYZNOCJCImEXc2AgMyRAwYSFQMGEhkDIAABBAAAEhUEAAASGQUAAQESGQQIABIVBAgAEhkDBhIM
+BAAAEgwECAASDAIGCAMGERQEAAAAAAQBAAAABCABAQ4EIAEBCAYAARJREVUEIAASWQYgAgEOElkE
+BwESFQUgAQERYQgBAAIAAAAAAAMAAAEEIAASbQQgABJxBSABEnUcBCABARxHAQAaLk5FVEZyYW1l
+d29yayxWZXJzaW9uPXY0LjABAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEC5ORVQgRnJhbWV3b3Jr
+IDQvAQAqU1RfYWIyM2M3ZjI1MzRkNDc0NTkwMDBjN2JmZTVlOTlmMmUuY3Nwcm9qAAAFAQAAAAAO
+AQAJTWljcm9zb2Z0AAAfAQAaQ29weXJpZ2h0IEAgTWljcm9zb2Z0IDIwMTEAAAgBAAgAAAAAAB4B
+AAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEA3C0AAAAAAAAAAAAA/i0AAAAgAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAPAtAAAAAAAAAAAAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRs
+bAAAAAAA/yUAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAADgEAAAAAAAAAAAAADgENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQA7kAASAAABADuQABI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsASYAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAB0AwAAAQAwADAA
+MAAwADAANABiADAAAAA0AAoAAQBDAG8AbQBwAGEAbgB5AE4AYQBtAGUAAAAAAE0AaQBjAHIAbwBz
+AG8AZgB0AAAAgAArAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAVABfAGEA
+YgAyADMAYwA3AGYAMgA1ADMANABkADQANwA0ADUAOQAwADAAMABjADcAYgBmAGUANQBlADkAOQBm
+ADIAZQAuAGMAcwBwAHIAbwBqAAAAAABAAA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEA
+LgAwAC4ANAA2ADAAOAAuADMANgA5ADIAMwAAAAAAgAAvAAEASQBuAHQAZQByAG4AYQBsAE4AYQBt
+AGUAAABTAFQAXwBhAGIAMgAzAGMANwBmADIANQAzADQAZAA0ADcANAA1ADkAMAAwADAAYwA3AGIA
+ZgBlADUAZQA5ADkAZgAyAGUALgBjAHMAcAByAG8AagAuAGQAbABsAAAAAABcABsAAQBMAGUAZwBh
+AGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIABNAGkAYwByAG8A
+cwBvAGYAdAAgADIAMAAxADEAAAAAAIgALwABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBt
+AGUAAABTAFQAXwBhAGIAMgAzAGMANwBmADIANQAzADQAZAA0ADcANAA1ADkAMAAwADAAYwA3AGIA
+ZgBlADUAZQA5ADkAZgAyAGUALgBjAHMAcAByAG8AagAuAGQAbABsAAAAAAB4ACsAAQBQAHIAbwBk
+AHUAYwB0AE4AYQBtAGUAAAAAAFMAVABfAGEAYgAyADMAYwA3AGYAMgA1ADMANABkADQANwA0ADUA
+OQAwADAAMABjADcAYgBmAGUANQBlADkAOQBmADIAZQAuAGMAcwBwAHIAbwBqAAAAAABEAA8AAQBQ
+AHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADQANgAwADgALgAzADYAOQAyADMA
+AAAAAEgADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADQANgAw
+ADgALgAzADYAOQAyADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAQPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D83B62F-9EC8-44BC-B511-D5FBF482D52E}"
+      DTS:From="Package\SCT - Set State"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - Get ZIP Code Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147.2,52"
+          Id="Package\DFT - Get ZIP Code Data"
+          TopLeft="42,174" />
+        <NodeLayout
+          Size="147.2,52"
+          Id="Package\SCT - Set State"
+          TopLeft="42,87" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="115.423333333333,139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Get ZIP Code Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152.8,49.6"
+          Id="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data"
+          TopLeft="68.5,59" />
+        <NodeLayout
+          Size="152.8,49.6"
+          Id="Package\DFT - Get ZIP Code Data\FFD - Output ZIP Code Data"
+          TopLeft="68.5,143" />
+        <EdgeLayout
+          Id="Package\DFT - Get ZIP Code Data.Paths[OLE DB Source Output]"
+          TopLeft="145.041666666667,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Get ZIP Code Data\SRC - Get ZIP Code Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

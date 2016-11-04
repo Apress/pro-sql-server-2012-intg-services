@@ -1,0 +1,8 @@
+Code	Product	Color	Size	Quantity
+A100	Widget	Blue	Large	110
+H983	Widget	Yellow	Small	125
+B234	Frammis	White	Small	19
+C983	Frammis	Blue	Extra Small	28
+X092	Frammis	Gold	Extra Large	87
+M378	Frammis	Silver	Large	21
+P128	Sunit	White	Large	34

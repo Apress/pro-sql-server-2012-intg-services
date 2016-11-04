@@ -1,0 +1,20 @@
+Code	Product	Color	Size	Quantity
+A100	Widget	Blue	Large	100
+A203	Widget	Green	Large	200
+A323	Widget	Red	Medium	250
+F324	Widget	Black	Medium	600
+H983	Widget	Yellow	Small	50
+A230	Frammis	Orange	Large	30
+A906	Frammis	Purple	Medium	98
+B234	Frammis	White	Small	46
+C983	Frammis	Blue	Extra Small	87
+X092	Frammis	Gold	Extra Large	894
+M378	Frammis	Silver	Large	154
+M291	Sunit	Black	Large	367
+K021	Sunit	Gray	Medium	212
+P128	Sunit	White	Large	11
+Q034	Sunit	Clear	Small	98
+S635	Platformator	Red	Large	268
+T919	Platformator	Purple	Large	347
+U293	Platformator	Orange	Small	219
+N094	Platformator	Gold	Medium	975

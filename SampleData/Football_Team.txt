@@ -1,0 +1,52 @@
+TeamID	TeamName	TeamLocationID
+1	Brooklyn Dodgers	15
+2	Cincinnati Bengals	19
+3	Miami Dolphins	5
+4	Pittsburgh Steelers	35
+5	Tennessee Titans	32
+6	Green Bay Packers	26
+7	Washington Redskins	39
+8	Oakland Raiders	33
+9	Kansas City Chiefs	28
+10	Minnesota Vikings	6
+11	San Diego Chargers	10
+12	Philadelphia Eagles	34
+13	Arizona Cardinals	25
+14	Boston Patriots	14
+15	Bos/Bkn Yanks/Tigers	14
+16	San Francisco 49ers	36
+17	Houston Texans	3
+18	Buffalo Bills	16
+19	New York Jets	23
+20	Los Angeles Raiders	29
+21	Phi/Pit Eagles/Steelers	34
+22	Carolina Panthers	17
+23	St. Louis Cardinals	38
+24	Chicago Bears	18
+25	Jacksonville Jaguars	4
+26	New England Patriots	24
+27	Baltimore Ravens	13
+28	Dallas Cowboys	21
+29	Detroit Lions	2
+30	Phoenix Cardinals	9
+31	Denver Broncos	22
+32	Houston Oilers	3
+33	Los Angeles Rams	29
+34	Tampa Bay Buccaneers	12
+35	Chicago Cardinals	18
+36	Indianapolis Colts	27
+37	Boston Yanks	14
+38	Cleveland Browns	20
+39	New York Yanks	30
+40	Cleveland Rams	20
+41	Baltimore Colts	13
+42	Dallas Texans	21
+43	Atlanta Falcons	1
+44	New York Giants	23
+45	New Orleans Saints	7
+46	Tennessee Oilers	31
+47	St. Louis Rams	38
+48	Seattle Seahawks	37
+49	Brooklyn Tigers	15
+50	Chi/Pit Cards/Steelers	18
+51	New York Bulldogs	30

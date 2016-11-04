@@ -1,0 +1,2671 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2011 10:44:05 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SQL11"
+  DTS:CreatorName="SQL11\Admin"
+  DTS:DTSID="{063C3AE8-01DB-4008-8905-CAEDEE11F278}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH8_Percentage_Sampling_Demo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{A3354866-D597-417B-8043-DE90B601B741}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BA10DC66-AFD5-473B-A0A8-09FEEBF1BDAC}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\AviationData.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventId"
+              DTS:DTSID="{C955AA7B-DFA7-415C-87DE-5EAF9063A960}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InvestigationType"
+              DTS:DTSID="{10E28ED4-CCD5-418C-BCC6-3518415C1069}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccidentNumber"
+              DTS:DTSID="{ABF23B00-8F93-4D29-B41B-5265E1ACCA2D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventDate"
+              DTS:DTSID="{4EEE627E-BB5E-45F5-B301-35ED8DF6FFBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventMonth"
+              DTS:DTSID="{C2754E5D-2D6C-48AD-A498-DE3E3FCD3F23}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventYear"
+              DTS:DTSID="{97E8A964-9844-4685-BDED-C326AB281279}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{678B8ADC-1242-40CD-BC86-F7FE47FB886B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{85DA0183-0329-4F0A-A237-B88FF3CC03BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{301139C4-4D59-4A01-B182-1D3FDF2FBBF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Latitude"
+              DTS:DTSID="{116F4199-497D-4E46-9F31-8C98981188B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Longitude"
+              DTS:DTSID="{21716508-AB64-4727-BFE5-7BC699AE37D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AirportCode"
+              DTS:DTSID="{46E9D77F-D883-44FE-B5EA-3F4BF70836B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AirportName"
+              DTS:DTSID="{78D5E7D4-7434-478C-B02B-14BB6FF9BFA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InjurySeverity"
+              DTS:DTSID="{54851C1A-82E1-4CA5-B0EB-D3BB31489CE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AircraftDamage"
+              DTS:DTSID="{446768B8-005D-482D-B352-3A2D45458D8B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AircraftCategory"
+              DTS:DTSID="{7D519D0B-15F9-4A0C-BEA0-5F60A5FE03FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationNumber"
+              DTS:DTSID="{9CCBCD2E-B519-4E69-81B6-BAAE590EB3A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Make"
+              DTS:DTSID="{88537991-EA25-419E-BF23-AC973FAA0FDD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model"
+              DTS:DTSID="{A1A5B82E-87E5-4689-AFE1-ECDF32EB171A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AmateurBuilt"
+              DTS:DTSID="{FFD76BB8-C402-4A0E-9EB9-D0F0A0656030}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumberofEngines"
+              DTS:DTSID="{BDB88E71-8794-4E2C-AC4C-D04C62636B10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EngineType"
+              DTS:DTSID="{E7266086-156E-4630-B14F-7DB71AFF7EF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FARDescription"
+              DTS:DTSID="{66D798C9-2785-4593-8E61-E2D5B92D4231}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Schedule"
+              DTS:DTSID="{A1FE7677-F5D6-4C61-97B1-78C48DD17A1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PurposeofFlight"
+              DTS:DTSID="{A1A9A0FE-B804-4E61-BC63-258128A0CBAE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AirCarrier"
+              DTS:DTSID="{9C955E8B-0EC1-43DD-8E36-FA309CF5AA41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalFatalInjuries"
+              DTS:DTSID="{530B5574-B41C-425C-B620-6537C8FA8DF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalSeriousInjuries"
+              DTS:DTSID="{23BE5B88-2312-4412-B441-4D0BA9E29F4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalMinorInjuries"
+              DTS:DTSID="{8E3840B6-305C-4F5B-95DC-0348F28CFEA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalUninjured"
+              DTS:DTSID="{8AADB24A-2781-4C0B-928A-77F9715BE83B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WeatherCondition"
+              DTS:DTSID="{9738817D-064C-4A3E-B5B4-12F72C27938C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BroadPhaseofFlight"
+              DTS:DTSID="{46920D36-C9CD-4B16-8DBE-CD6910D440C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReportStatus"
+              DTS:DTSID="{5EBFE03E-E1ED-4752-966B-BB8578B80D6F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PublicationDate"
+              DTS:DTSID="{0E3DAD0F-CC2A-47F2-8876-A38B4A1461B2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample Database]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CB47B4A1-B9A0-4928-A7F6-05508EFAAAD6}"
+      DTS:ObjectName="Sample Database">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=SampleDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Percentage Sampling"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7F4F4BC0-AAFC-4C81-8E3C-D2C417E1C197}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Percentage Sampling"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Selected Rows"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AviationSelected]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[EventId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EventId"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventId]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventId]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[InvestigationType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="InvestigationType"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InvestigationType]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InvestigationType]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AccidentNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccidentNumber"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AccidentNumber]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AccidentNumber]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[EventDate]"
+                      cachedDataType="date"
+                      cachedName="EventDate"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventDate]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventDate]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[EventMonth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="EventMonth"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventMonth]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="r8"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="r8"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AirportCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AirportCode"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportCode]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportCode]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AirportName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AirportName"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportName]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportName]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[InjurySeverity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="InjurySeverity"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InjurySeverity]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InjurySeverity]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AircraftDamage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AircraftDamage"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftDamage]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftDamage]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AircraftCategory]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="AircraftCategory"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftCategory]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftCategory]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[RegistrationNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationNumber"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationNumber]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[RegistrationNumber]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Make]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Make"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Make]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Make]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Model]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Model"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Model]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Model]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AmateurBuilt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AmateurBuilt"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AmateurBuilt]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AmateurBuilt]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[NumberofEngines]"
+                      cachedDataType="i4"
+                      cachedName="NumberofEngines"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[NumberofEngines]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[NumberofEngines]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[EngineType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EngineType"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EngineType]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EngineType]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[FARDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FARDescription"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[FARDescription]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[FARDescription]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[Schedule]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Schedule"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Schedule]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[PurposeofFlight]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurposeofFlight"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PurposeofFlight]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PurposeofFlight]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[AirCarrier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="AirCarrier"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirCarrier]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirCarrier]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[TotalFatalInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalFatalInjuries"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalFatalInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[TotalSeriousInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalSeriousInjuries"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalSeriousInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[TotalMinorInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalMinorInjuries"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[TotalUninjured]"
+                      cachedDataType="i4"
+                      cachedName="TotalUninjured"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalUninjured]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[WeatherCondition]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeatherCondition"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[WeatherCondition]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[WeatherCondition]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[BroadPhaseofFlight]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BroadPhaseofFlight"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[BroadPhaseofFlight]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[BroadPhaseofFlight]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[ReportStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ReportStatus"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[ReportStatus]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[ReportStatus]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].Columns[PublicationDate]"
+                      cachedDataType="date"
+                      cachedName="PublicationDate"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PublicationDate]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PublicationDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="EventMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalSeriousInjuries]"
+                      dataType="i4"
+                      name="TotalSeriousInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalUninjured]"
+                      dataType="i4"
+                      name="TotalUninjured" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalFatalInjuries]"
+                      dataType="i4"
+                      name="TotalFatalInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      dataType="i4"
+                      name="TotalMinorInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EventId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InvestigationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InvestigationType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AccidentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccidentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventDate]"
+                      dataType="dbTimeStamp"
+                      name="EventDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InjurySeverity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InjurySeverity" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftDamage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AircraftDamage" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AircraftCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Make" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Model" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AmateurBuilt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AmateurBuilt" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[NumberofEngines]"
+                      dataType="i4"
+                      name="NumberofEngines" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EngineType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EngineType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[FARDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FARDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Schedule" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PurposeofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PurposeofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AirCarrier" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[WeatherCondition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeatherCondition" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[BroadPhaseofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BroadPhaseofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[ReportStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ReportStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PublicationDate]"
+                      dataType="dbTimeStamp"
+                      name="PublicationDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Unselected Rows"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AviationUnselected]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[EventId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EventId"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventId]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventId]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[InvestigationType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="InvestigationType"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InvestigationType]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InvestigationType]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AccidentNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccidentNumber"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AccidentNumber]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AccidentNumber]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[EventDate]"
+                      cachedDataType="date"
+                      cachedName="EventDate"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventDate]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventDate]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[EventMonth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="EventMonth"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventMonth]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="r8"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="r8"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AirportCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AirportCode"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportCode]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportCode]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AirportName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AirportName"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportName]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportName]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[InjurySeverity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="InjurySeverity"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InjurySeverity]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InjurySeverity]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AircraftDamage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AircraftDamage"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftDamage]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftDamage]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AircraftCategory]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="AircraftCategory"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftCategory]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftCategory]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[RegistrationNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationNumber"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationNumber]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[RegistrationNumber]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Make]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Make"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Make]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Make]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Model]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Model"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Model]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Model]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AmateurBuilt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AmateurBuilt"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AmateurBuilt]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AmateurBuilt]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[NumberofEngines]"
+                      cachedDataType="i4"
+                      cachedName="NumberofEngines"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[NumberofEngines]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[NumberofEngines]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[EngineType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EngineType"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EngineType]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EngineType]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[FARDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FARDescription"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[FARDescription]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[FARDescription]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[Schedule]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Schedule"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Schedule]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[PurposeofFlight]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurposeofFlight"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PurposeofFlight]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PurposeofFlight]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[AirCarrier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="AirCarrier"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirCarrier]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirCarrier]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[TotalFatalInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalFatalInjuries"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalFatalInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[TotalSeriousInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalSeriousInjuries"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalSeriousInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[TotalMinorInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalMinorInjuries"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[TotalUninjured]"
+                      cachedDataType="i4"
+                      cachedName="TotalUninjured"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalUninjured]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[WeatherCondition]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeatherCondition"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[WeatherCondition]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[WeatherCondition]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[BroadPhaseofFlight]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BroadPhaseofFlight"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[BroadPhaseofFlight]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[BroadPhaseofFlight]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[ReportStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ReportStatus"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[ReportStatus]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[ReportStatus]" />
+                    <inputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].Columns[PublicationDate]"
+                      cachedDataType="date"
+                      cachedName="PublicationDate"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PublicationDate]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PublicationDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="EventMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalSeriousInjuries]"
+                      dataType="i4"
+                      name="TotalSeriousInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalUninjured]"
+                      dataType="i4"
+                      name="TotalUninjured" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalFatalInjuries]"
+                      dataType="i4"
+                      name="TotalFatalInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      dataType="i4"
+                      name="TotalMinorInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EventId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InvestigationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InvestigationType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AccidentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccidentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EventDate]"
+                      dataType="dbTimeStamp"
+                      name="EventDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirportName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[InjurySeverity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InjurySeverity" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftDamage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AircraftDamage" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AircraftCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AircraftCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Make" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Model" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AmateurBuilt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AmateurBuilt" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[NumberofEngines]"
+                      dataType="i4"
+                      name="NumberofEngines" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[EngineType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EngineType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[FARDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FARDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Schedule" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PurposeofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PurposeofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[AirCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AirCarrier" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[WeatherCondition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeatherCondition" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[BroadPhaseofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BroadPhaseofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[ReportStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ReportStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input].ExternalColumns[PublicationDate]"
+                      dataType="dbTimeStamp"
+                      name="PublicationDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Percentage Sampling\PCS - Sample Data"
+              componentClassID="{05322586-D434-4593-8BE4-8CFC766D9C8B}"
+              contactInfo="Percentage Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Randomly samples a percentage of rows from an input data flow. For example, use it twice to help create a data mining model: create one sample for training the model and another sample for testing the model."
+              name="PCS - Sample Data">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage size of the sample."
+                  expressionType="Notify"
+                  name="SamplingValue">10</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the seed for the random number generator."
+                  name="SamplingSeed">0</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFL - Percentage Sampling\PCS - Sample Data.Inputs[Percentage Sampling Input 1]"
+                  name="Percentage Sampling Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Percentage Sampling\PCS - Sample Data.Outputs[Sampling Selected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Selected Output"
+                  synchronousInputId="Package\DFL - Percentage Sampling\PCS - Sample Data.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Percentage Sampling\PCS - Sample Data.Outputs[Sampling Unselected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Unselected Output"
+                  synchronousInputId="Package\DFL - Percentage Sampling\PCS - Sample Data.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">false</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Percentage Sampling\SRC - Aviation Data"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Aviation Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventId]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventId]"
+                      name="EventId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InvestigationType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InvestigationType]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InvestigationType]"
+                      name="InvestigationType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AccidentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AccidentNumber]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AccidentNumber]"
+                      name="AccidentNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventDate]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventDate]"
+                      name="EventDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventMonth]"
+                      length="2"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]"
+                      name="EventMonth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventYear]"
+                      length="4"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]"
+                      name="EventYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      length="100"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportCode]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportCode]"
+                      name="AirportCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportName]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportName]"
+                      name="AirportName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InjurySeverity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InjurySeverity]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InjurySeverity]"
+                      name="InjurySeverity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftDamage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftDamage]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftDamage]"
+                      name="AircraftDamage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftCategory]"
+                      length="100"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftCategory]"
+                      name="AircraftCategory"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[RegistrationNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationNumber]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[RegistrationNumber]"
+                      name="RegistrationNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Make]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Make]"
+                      name="Make"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Model]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Model]"
+                      name="Model"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AmateurBuilt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AmateurBuilt]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AmateurBuilt]"
+                      name="AmateurBuilt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[NumberofEngines]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[NumberofEngines]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[NumberofEngines]"
+                      name="NumberofEngines"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EngineType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EngineType]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EngineType]"
+                      name="EngineType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[FARDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[FARDescription]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[FARDescription]"
+                      name="FARDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Schedule]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Schedule]"
+                      name="Schedule"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PurposeofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PurposeofFlight]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PurposeofFlight]"
+                      name="PurposeofFlight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirCarrier]"
+                      length="100"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirCarrier]"
+                      name="AirCarrier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalFatalInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]"
+                      name="TotalFatalInjuries"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalSeriousInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]"
+                      name="TotalSeriousInjuries"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalMinorInjuries]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]"
+                      name="TotalMinorInjuries"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalUninjured]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]"
+                      name="TotalUninjured"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[WeatherCondition]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[WeatherCondition]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[WeatherCondition]"
+                      name="WeatherCondition"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[BroadPhaseofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[BroadPhaseofFlight]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[BroadPhaseofFlight]"
+                      name="BroadPhaseofFlight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[ReportStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[ReportStatus]"
+                      length="50"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[ReportStatus]"
+                      name="ReportStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PublicationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PublicationDate]"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PublicationDate]"
+                      name="PublicationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EventId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InvestigationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InvestigationType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AccidentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccidentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventDate]"
+                      dataType="date"
+                      name="EventDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="EventMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InjurySeverity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InjurySeverity" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftDamage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AircraftDamage" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AircraftCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Make" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Model" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AmateurBuilt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AmateurBuilt" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[NumberofEngines]"
+                      dataType="i4"
+                      name="NumberofEngines" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EngineType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EngineType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[FARDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FARDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Schedule" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PurposeofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PurposeofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AirCarrier" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalFatalInjuries]"
+                      dataType="i4"
+                      name="TotalFatalInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalSeriousInjuries]"
+                      dataType="i4"
+                      name="TotalSeriousInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalMinorInjuries]"
+                      dataType="i4"
+                      name="TotalMinorInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalUninjured]"
+                      dataType="i4"
+                      name="TotalUninjured" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[WeatherCondition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeatherCondition" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[BroadPhaseofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BroadPhaseofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[ReportStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ReportStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PublicationDate]"
+                      dataType="date"
+                      name="PublicationDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Percentage Sampling.Paths[Flat File Source Output]"
+              endId="Package\DFL - Percentage Sampling\PCS - Sample Data.Inputs[Percentage Sampling Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DFL - Percentage Sampling\SRC - Aviation Data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFL - Percentage Sampling.Paths[Sampling Selected Output]"
+              endId="Package\DFL - Percentage Sampling\DST - Save Selected Rows.Inputs[OLE DB Destination Input]"
+              name="Sampling Selected Output"
+              startId="Package\DFL - Percentage Sampling\PCS - Sample Data.Outputs[Sampling Selected Output]" />
+            <path
+              refId="Package\DFL - Percentage Sampling.Paths[Sampling Unselected Output]"
+              endId="Package\DFL - Percentage Sampling\DST - Save Unselected Rows.Inputs[OLE DB Destination Input]"
+              name="Sampling Unselected Output"
+              startId="Package\DFL - Percentage Sampling\PCS - Sample Data.Outputs[Sampling Unselected Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163.2,52"
+          Id="Package\DFL - Percentage Sampling"
+          TopLeft="332,160" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFL - Percentage Sampling">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Percentage Sampling\DST - Save Selected Rows"
+          TopLeft="19.611111111111,199.5625" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Percentage Sampling\SRC - Aviation Data"
+          TopLeft="124.611111111111,9.5" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Percentage Sampling\PCS - Sample Data"
+          TopLeft="127,97.75" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Percentage Sampling\DST - Save Unselected Rows"
+          TopLeft="240,199.5625" />
+        <EdgeLayout
+          Id="Package\DFL - Percentage Sampling.Paths[Sampling Unselected Output]"
+          TopLeft="234.753333333333,150.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="87.0616666666667,48.8125"
+              Start="0,0"
+              End="87.0616666666667,41.3125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.808604672275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.808604672275"
+                    Point2="0,19.808604672275"
+                    Point3="4,19.808604672275" />
+                  <mssgle:LineSegment
+                    End="83.0616666666667,19.808604672275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.0616666666667,19.808604672275"
+                    Point2="87.0616666666667,19.808604672275"
+                    Point3="87.0616666666667,23.808604672275" />
+                  <mssgle:LineSegment
+                    End="87.0616666666667,41.3125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.9262174479167,24.808604672275,124.9141015625,9.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Percentage Sampling.Paths[Flat File Source Output]"
+          TopLeft="207.620555555555,62.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.25"
+              Start="0,0"
+              End="0,27.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-26.8544140625,9.25341796875,53.708828125,9.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Percentage Sampling.Paths[Sampling Selected Output]"
+          TopLeft="182.876666666667,150.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-81.4505555555557,48.8125"
+              Start="0,0"
+              End="-81.4505555555557,41.3125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.808604672275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.808604672275"
+                    Point2="0,19.808604672275"
+                    Point3="-4,19.808604672275" />
+                  <mssgle:LineSegment
+                    End="-77.4505555555557,19.808604672275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-77.4505555555557,19.808604672275"
+                    Point2="-81.4505555555557,19.808604672275"
+                    Point3="-81.4505555555557,23.808604672275" />
+                  <mssgle:LineSegment
+                    End="-81.4505555555557,41.3125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-97.6673285590278,24.808604672275,113.8841015625,9.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Percentage Sampling\DST - Save Unselected Rows">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Percentage Sampling\DST - Save Selected Rows">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

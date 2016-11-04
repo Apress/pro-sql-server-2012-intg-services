@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/1/2011 4:10:32 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SQL11"
+  DTS:CreatorName="SQL11\Admin"
+  DTS:DTSID="{F5863ED2-814E-45AE-AEF8-25ECC0E9BD47}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH8_Unpivot_Demo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{BA3B3809-6668-4815-8222-64FF8D2B71F1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{27A314B9-6D67-4928-81F9-3DA02552AE56}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\PivotedAviation.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{EFDFC742-18F5-41BC-943D-B1DA0327DA07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventYear"
+              DTS:DTSID="{8F5A1A8D-FDA0-44CF-90C8-EA36E573AB28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Jan"
+              DTS:DTSID="{3725D7E9-332B-474A-B522-7ACFC077F913}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Feb"
+              DTS:DTSID="{42CF622D-F5E4-408D-918C-1996DB3B5151}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mar"
+              DTS:DTSID="{13583FAF-5DF4-40B1-B281-EAC503D7727B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Apr"
+              DTS:DTSID="{A6416C87-8BCB-462E-B717-3D29F087FFAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="May"
+              DTS:DTSID="{BDF27F0C-27CF-47B0-B367-DFC9F4323922}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Jun"
+              DTS:DTSID="{DBD10F16-0375-4B02-9F52-6CBAE02AFFF0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Jul"
+              DTS:DTSID="{0857C0F3-A27F-4D74-95F0-AA8CA3803557}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Aug"
+              DTS:DTSID="{7920B67E-F64E-46AC-AB27-DE65B1D127C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sep"
+              DTS:DTSID="{FD2DF1F4-A543-43E5-95DF-FD3F9B173E64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Oct"
+              DTS:DTSID="{DD5FB6C3-4C2C-4674-BD74-CC38B1A7BC8A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nov"
+              DTS:DTSID="{69CB6AE5-5451-4888-82F7-6B33CD77E119}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dec"
+              DTS:DTSID="{88D8391F-B933-4A8B-B526-A06577536075}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample Database]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C3878CF0-4CF2-4934-9E99-2632C8AE7CF6}"
+      DTS:ObjectName="Sample Database">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=SampleDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Unpivot"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EDB20ACA-3BA8-4C16-B8E6-24E3122D6C3F}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Unpivot"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{DA561E34-EE25-4716-AF24-090BC5A16D93}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Unpivot\DST - Save Unpivoted Data"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Unpivoted Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AviationUnpivot]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].Columns[Month]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].Columns[TotalMinorInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalMinorInjuries"
+                      externalMetadataColumnId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]" />
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      externalMetadataColumnId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[EventYear]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      dataType="i4"
+                      name="TotalMinorInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FFS - Pivoted Aviation Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventYear]"
+                      length="4"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]"
+                      name="EventYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jan]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Jan]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jan]"
+                      name="Jan"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Feb]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Feb]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Feb]"
+                      name="Feb"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Mar]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Mar]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Mar]"
+                      name="Mar"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Apr]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Apr]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Apr]"
+                      name="Apr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[May]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[May]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[May]"
+                      name="May"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jun]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Jun]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jun]"
+                      name="Jun"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jul]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Jul]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jul]"
+                      name="Jul"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Aug]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Aug]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Aug]"
+                      name="Aug"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Sep]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Sep]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Sep]"
+                      name="Sep"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Oct]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Oct]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Oct]"
+                      name="Oct"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Nov]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Nov]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Nov]"
+                      name="Nov"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Dec]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Dec]"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Dec]"
+                      name="Dec"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Jan]"
+                      dataType="i4"
+                      name="Jan" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Feb]"
+                      dataType="i4"
+                      name="Feb" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Mar]"
+                      dataType="i4"
+                      name="Mar" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Apr]"
+                      dataType="i4"
+                      name="Apr" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[May]"
+                      dataType="i4"
+                      name="May" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Jun]"
+                      dataType="i4"
+                      name="Jun" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Jul]"
+                      dataType="i4"
+                      name="Jul" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Aug]"
+                      dataType="i4"
+                      name="Aug" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Sep]"
+                      dataType="i4"
+                      name="Sep" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Oct]"
+                      dataType="i4"
+                      name="Oct" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Nov]"
+                      dataType="i4"
+                      name="Nov" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Dec]"
+                      dataType="i4"
+                      name="Dec" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data"
+              componentClassID="{B8B094A9-8809-4E06-8874-5C55606A9FDF}"
+              contactInfo="Unpivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Expands an un-normalized data flow into a more normalized version. Values from multiple columns of a single record expand to multiple records in a single column. For example, expand a table that lists athletic scores with a column for each game to more records and a single score column."
+              name="UPV - Unpivot Aviation Data">
+              <inputs>
+                <input
+                  refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input]"
+                  hasSideEffects="true"
+                  name="Unpivot Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Jan]"
+                      cachedDataType="i4"
+                      cachedName="Jan"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jan]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Jan</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Feb]"
+                      cachedDataType="i4"
+                      cachedName="Feb"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Feb]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Feb</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Mar]"
+                      cachedDataType="i4"
+                      cachedName="Mar"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Mar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Mar</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Apr]"
+                      cachedDataType="i4"
+                      cachedName="Apr"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Apr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Apr</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[May]"
+                      cachedDataType="i4"
+                      cachedName="May"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[May]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">May</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Jun]"
+                      cachedDataType="i4"
+                      cachedName="Jun"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jun]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Jun</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Jul]"
+                      cachedDataType="i4"
+                      cachedName="Jul"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Jul]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Jul</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Aug]"
+                      cachedDataType="i4"
+                      cachedName="Aug"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Aug]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Aug</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Sep]"
+                      cachedDataType="i4"
+                      cachedName="Sep"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Sep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Sep</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Oct]"
+                      cachedDataType="i4"
+                      cachedName="Oct"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Oct]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Oct</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Nov]"
+                      cachedDataType="i4"
+                      cachedName="Nov"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Nov]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Nov</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[Dec]"
+                      cachedDataType="i4"
+                      cachedName="Dec"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[Dec]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Dec</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[State]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      lineageId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[EventYear]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output]"
+                  name="Unpivot Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[Month]"
+                      name="Month">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">true</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[TotalMinorInjuries]"
+                      name="TotalMinorInjuries">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[State]"
+                      name="State">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output].Columns[EventYear]"
+                      name="EventYear">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Unpivot.Paths[Flat File Source Output]"
+              endId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Inputs[Unpivot Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT - Unpivot\FFS - Pivoted Aviation Data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT - Unpivot.Paths[Unpivot Output]"
+              endId="Package\DFT - Unpivot\DST - Save Unpivoted Data.Inputs[OLE DB Destination Input]"
+              name="Unpivot Output"
+              startId="Package\DFT - Unpivot\UPV - Unpivot Aviation Data.Outputs[Unpivot Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="154.4,56"
+          Id="Package\DFT - Unpivot"
+          TopLeft="276,111" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Unpivot">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.943333333334,55"
+          Id="Package\DFT - Unpivot\FFS - Pivoted Aviation Data"
+          TopLeft="31,19" />
+        <NodeLayout
+          Size="162.943333333334,55"
+          Id="Package\DFT - Unpivot\UPV - Unpivot Aviation Data"
+          TopLeft="31,102" />
+        <EdgeLayout
+          Id="Package\DFT - Unpivot.Paths[Flat File Source Output]"
+          TopLeft="112.471666666667,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.943333333334,55"
+          Id="Package\DFT - Unpivot\DST - Save Unpivoted Data"
+          TopLeft="31,189" />
+        <EdgeLayout
+          Id="Package\DFT - Unpivot.Paths[Unpivot Output]"
+          TopLeft="112.471666666667,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Unpivot\DST - Save Unpivoted Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

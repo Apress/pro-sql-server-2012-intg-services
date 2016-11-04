@@ -1,0 +1,1999 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/1/2011 7:50:38 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SQL11"
+  DTS:CreatorName="SQL11\Admin"
+  DTS:DTSID="{A4D2331A-4343-4B4B-803D-C1354067DB3F}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH8_Union_All_Demo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{CB90E97F-A78D-40B0-933D-56D0AA342EE7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample Database]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C50B01F3-64EE-42DA-BB63-4128A3ECBB54}"
+      DTS:ObjectName="Sample Database">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=SampleDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Weather Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{71E12C46-EF2F-4705-9A91-F76CA6273529}"
+      DTS:ObjectName="Weather Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\Football_Weather1.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameID"
+              DTS:DTSID="{D4306FF4-2115-4EB1-BA22-2135287B7B07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Precipitation"
+              DTS:DTSID="{F167BD38-8304-4499-800C-8341C6C418A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SnowFall"
+              DTS:DTSID="{CB6D1DBA-E776-4D8C-94B4-EDB3758EAB94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SnowDepth"
+              DTS:DTSID="{DFD3E1F7-7956-4C87-81A6-FC21CBF703D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MaxTemperature"
+              DTS:DTSID="{34C83FD1-068D-4545-84A0-D94B03E24525}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MinTemperature"
+              DTS:DTSID="{86B5CD88-836E-44EB-9AAE-A1CCC05B2A27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FogFlag"
+              DTS:DTSID="{AA3C476E-386B-46B3-82CC-021ACF8B489A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ThunderFlag"
+              DTS:DTSID="{34224A2C-D3BA-487F-9CEC-7F11F95F6B79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HailFlag"
+              DTS:DTSID="{4CE58688-EA0F-43E3-9D72-B94D4164AB9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DustFlag"
+              DTS:DTSID="{2DE0B603-CF61-46A2-842F-75459137FC38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HighWindFlag"
+              DTS:DTSID="{21D195CF-7EE3-4DCE-AF43-D4D3E4C1058A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RainFlag"
+              DTS:DTSID="{10BAE655-ED60-4D45-B5B8-9936F898F34D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SnowFlag"
+              DTS:DTSID="{1F0797E8-A29E-4728-B282-6D05DDB8829C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnknownPrecipFlag"
+              DTS:DTSID="{BD034B3E-A96F-4358-B14E-10DD0342D53B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Weather Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A809A18D-3542-4984-93C7-4258608B670B}"
+      DTS:ObjectName="Weather Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\Football_Weather2.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GameID"
+              DTS:DTSID="{5F99E654-B50C-46C8-974B-E0A5209B88F2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Precipitation"
+              DTS:DTSID="{EDACF763-0692-455D-8D8F-F95138DC5482}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SnowFall"
+              DTS:DTSID="{D2A998EC-46FC-4DC6-818C-F52190812E0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SnowDepth"
+              DTS:DTSID="{6021D785-9B98-4587-A653-E361D8A828C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MaxTemperature"
+              DTS:DTSID="{B2142684-12BF-4465-B903-7759F3726C1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MinTemperature"
+              DTS:DTSID="{28667A1E-C392-482B-BC8C-1C5ADDB7B6B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FogFlag"
+              DTS:DTSID="{C9F2DE9E-7E6F-4C3E-A748-4EEE9C6C5F6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ThunderFlag"
+              DTS:DTSID="{7D04B519-DBB8-4DD3-A92D-D62C5238DBB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HailFlag"
+              DTS:DTSID="{9F33747D-C68F-47B8-897B-CF59CBB0F379}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DustFlag"
+              DTS:DTSID="{348FE61B-F467-4392-9D76-5CE1A26A76F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HighWindFlag"
+              DTS:DTSID="{BC2E34E2-124F-4573-83D1-076C7B9C4A7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RainFlag"
+              DTS:DTSID="{696010DC-286C-464A-BF1A-F901B2FC2161}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SnowFlag"
+              DTS:DTSID="{F47E1BEA-CBE8-4CAA-9E6A-DEC5BC3FBAC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnknownPrecipFlag"
+              DTS:DTSID="{C441BA3B-E026-4C39-A63B-B1E3DAE8760B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Union All Weather"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2A0737E2-54BD-4A98-8D4D-B74E06CFDCDC}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Union All Weather"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Union All Weather\DST - Save Weather Data"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Weather Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FootballWeather]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Union All Weather\DST - Save Weather Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[GameID]"
+                      cachedDataType="i4"
+                      cachedName="GameID"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[GameID]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[GameID]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[Precipitation]"
+                      cachedDataType="i4"
+                      cachedName="Precipitation"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[Precipitation]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[Precipitation]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[SnowFall]"
+                      cachedDataType="i4"
+                      cachedName="SnowFall"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[SnowFall]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFall]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[SnowDepth]"
+                      cachedDataType="i4"
+                      cachedName="SnowDepth"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[SnowDepth]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowDepth]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[MaxTemperature]"
+                      cachedDataType="i4"
+                      cachedName="MaxTemperature"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[MaxTemperature]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MaxTemperature]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[MinTemperature]"
+                      cachedDataType="i4"
+                      cachedName="MinTemperature"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[MinTemperature]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MinTemperature]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[FogFlag]"
+                      cachedDataType="i4"
+                      cachedName="FogFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[FogFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[FogFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[ThunderFlag]"
+                      cachedDataType="i4"
+                      cachedName="ThunderFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[ThunderFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[ThunderFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[HailFlag]"
+                      cachedDataType="i4"
+                      cachedName="HailFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[HailFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HailFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[DustFlag]"
+                      cachedDataType="i4"
+                      cachedName="DustFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[DustFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[DustFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[HighWindFlag]"
+                      cachedDataType="i4"
+                      cachedName="HighWindFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[HighWindFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HighWindFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[RainFlag]"
+                      cachedDataType="i4"
+                      cachedName="RainFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[RainFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[RainFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[SnowFlag]"
+                      cachedDataType="i4"
+                      cachedName="SnowFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[SnowFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFlag]" />
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].Columns[UnknownPrecipFlag]"
+                      cachedDataType="i4"
+                      cachedName="UnknownPrecipFlag"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[UnknownPrecipFlag]"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[UnknownPrecipFlag]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[GameID]"
+                      dataType="i4"
+                      name="GameID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[Precipitation]"
+                      dataType="i4"
+                      name="Precipitation" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[SnowFall]"
+                      dataType="i4"
+                      name="SnowFall" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[SnowDepth]"
+                      dataType="i4"
+                      name="SnowDepth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[MaxTemperature]"
+                      dataType="i4"
+                      name="MaxTemperature" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[MinTemperature]"
+                      dataType="i4"
+                      name="MinTemperature" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[FogFlag]"
+                      dataType="i4"
+                      name="FogFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[ThunderFlag]"
+                      dataType="i4"
+                      name="ThunderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[HailFlag]"
+                      dataType="i4"
+                      name="HailFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[DustFlag]"
+                      dataType="i4"
+                      name="DustFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[HighWindFlag]"
+                      dataType="i4"
+                      name="HighWindFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[RainFlag]"
+                      dataType="i4"
+                      name="RainFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[SnowFlag]"
+                      dataType="i4"
+                      name="SnowFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input].ExternalColumns[UnknownPrecipFlag]"
+                      dataType="i4"
+                      name="UnknownPrecipFlag" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Union All Weather\DST - Save Weather Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\DST - Save Weather Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\DST - Save Weather Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\DST - Save Weather Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Union All Weather\FFS - Weather Data 1"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FFS - Weather Data 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Weather Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Weather Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[GameID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[GameID]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[GameID]"
+                      name="GameID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[Precipitation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[Precipitation]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[Precipitation]"
+                      name="Precipitation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowFall]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[SnowFall]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowFall]"
+                      name="SnowFall"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowDepth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[SnowDepth]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowDepth]"
+                      name="SnowDepth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[MaxTemperature]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[MaxTemperature]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[MaxTemperature]"
+                      name="MaxTemperature"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[MinTemperature]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[MinTemperature]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[MinTemperature]"
+                      name="MinTemperature"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[FogFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[FogFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[FogFlag]"
+                      name="FogFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[ThunderFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[ThunderFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[ThunderFlag]"
+                      name="ThunderFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[HailFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[HailFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[HailFlag]"
+                      name="HailFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[DustFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[DustFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[DustFlag]"
+                      name="DustFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[HighWindFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[HighWindFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[HighWindFlag]"
+                      name="HighWindFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[RainFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[RainFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[RainFlag]"
+                      name="RainFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[SnowFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowFlag]"
+                      name="SnowFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[UnknownPrecipFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[UnknownPrecipFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[UnknownPrecipFlag]"
+                      name="UnknownPrecipFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[GameID]"
+                      dataType="i4"
+                      name="GameID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[Precipitation]"
+                      dataType="i4"
+                      name="Precipitation" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[SnowFall]"
+                      dataType="i4"
+                      name="SnowFall" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[SnowDepth]"
+                      dataType="i4"
+                      name="SnowDepth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[MaxTemperature]"
+                      dataType="i4"
+                      name="MaxTemperature" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[MinTemperature]"
+                      dataType="i4"
+                      name="MinTemperature" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[FogFlag]"
+                      dataType="i4"
+                      name="FogFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[ThunderFlag]"
+                      dataType="i4"
+                      name="ThunderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[HailFlag]"
+                      dataType="i4"
+                      name="HailFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[DustFlag]"
+                      dataType="i4"
+                      name="DustFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[HighWindFlag]"
+                      dataType="i4"
+                      name="HighWindFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[RainFlag]"
+                      dataType="i4"
+                      name="RainFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[SnowFlag]"
+                      dataType="i4"
+                      name="SnowFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].ExternalColumns[UnknownPrecipFlag]"
+                      dataType="i4"
+                      name="UnknownPrecipFlag" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Union All Weather\FFS - Weather Data 2"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FFS - Weather Data 2"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Weather Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Weather Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[GameID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[GameID]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[GameID]"
+                      name="GameID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[Precipitation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[Precipitation]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[Precipitation]"
+                      name="Precipitation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowFall]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[SnowFall]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowFall]"
+                      name="SnowFall"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowDepth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[SnowDepth]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowDepth]"
+                      name="SnowDepth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[MaxTemperature]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[MaxTemperature]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[MaxTemperature]"
+                      name="MaxTemperature"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[MinTemperature]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[MinTemperature]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[MinTemperature]"
+                      name="MinTemperature"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[FogFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[FogFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[FogFlag]"
+                      name="FogFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[ThunderFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[ThunderFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[ThunderFlag]"
+                      name="ThunderFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[HailFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[HailFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[HailFlag]"
+                      name="HailFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[DustFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[DustFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[DustFlag]"
+                      name="DustFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[HighWindFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[HighWindFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[HighWindFlag]"
+                      name="HighWindFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[RainFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[RainFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[RainFlag]"
+                      name="RainFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[SnowFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowFlag]"
+                      name="SnowFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[UnknownPrecipFlag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[UnknownPrecipFlag]"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[UnknownPrecipFlag]"
+                      name="UnknownPrecipFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[GameID]"
+                      dataType="i4"
+                      name="GameID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[Precipitation]"
+                      dataType="i4"
+                      name="Precipitation" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[SnowFall]"
+                      dataType="i4"
+                      name="SnowFall" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[SnowDepth]"
+                      dataType="i4"
+                      name="SnowDepth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[MaxTemperature]"
+                      dataType="i4"
+                      name="MaxTemperature" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[MinTemperature]"
+                      dataType="i4"
+                      name="MinTemperature" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[FogFlag]"
+                      dataType="i4"
+                      name="FogFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[ThunderFlag]"
+                      dataType="i4"
+                      name="ThunderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[HailFlag]"
+                      dataType="i4"
+                      name="HailFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[DustFlag]"
+                      dataType="i4"
+                      name="DustFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[HighWindFlag]"
+                      dataType="i4"
+                      name="HighWindFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[RainFlag]"
+                      dataType="i4"
+                      name="RainFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[SnowFlag]"
+                      dataType="i4"
+                      name="SnowFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].ExternalColumns[UnknownPrecipFlag]"
+                      dataType="i4"
+                      name="UnknownPrecipFlag" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Union All Weather\UNI - Combine Weather Data"
+              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="UNI - Combine Weather Data"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[GameID]"
+                      cachedDataType="i4"
+                      cachedName="GameID"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[GameID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[GameID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[Precipitation]"
+                      cachedDataType="i4"
+                      cachedName="Precipitation"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[Precipitation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[Precipitation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[SnowFall]"
+                      cachedDataType="i4"
+                      cachedName="SnowFall"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowFall]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFall]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[SnowDepth]"
+                      cachedDataType="i4"
+                      cachedName="SnowDepth"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowDepth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowDepth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[MaxTemperature]"
+                      cachedDataType="i4"
+                      cachedName="MaxTemperature"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[MaxTemperature]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MaxTemperature]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[MinTemperature]"
+                      cachedDataType="i4"
+                      cachedName="MinTemperature"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[MinTemperature]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MinTemperature]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[FogFlag]"
+                      cachedDataType="i4"
+                      cachedName="FogFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[FogFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[FogFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[ThunderFlag]"
+                      cachedDataType="i4"
+                      cachedName="ThunderFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[ThunderFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[ThunderFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[HailFlag]"
+                      cachedDataType="i4"
+                      cachedName="HailFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[HailFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HailFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[DustFlag]"
+                      cachedDataType="i4"
+                      cachedName="DustFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[DustFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[DustFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[HighWindFlag]"
+                      cachedDataType="i4"
+                      cachedName="HighWindFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[HighWindFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HighWindFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[RainFlag]"
+                      cachedDataType="i4"
+                      cachedName="RainFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[RainFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[RainFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[SnowFlag]"
+                      cachedDataType="i4"
+                      cachedName="SnowFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[SnowFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1].Columns[UnknownPrecipFlag]"
+                      cachedDataType="i4"
+                      cachedName="UnknownPrecipFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output].Columns[UnknownPrecipFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[UnknownPrecipFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[GameID]"
+                      cachedDataType="i4"
+                      cachedName="GameID"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[GameID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[GameID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[Precipitation]"
+                      cachedDataType="i4"
+                      cachedName="Precipitation"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[Precipitation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[Precipitation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[SnowFall]"
+                      cachedDataType="i4"
+                      cachedName="SnowFall"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowFall]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFall]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[SnowDepth]"
+                      cachedDataType="i4"
+                      cachedName="SnowDepth"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowDepth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowDepth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[MaxTemperature]"
+                      cachedDataType="i4"
+                      cachedName="MaxTemperature"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[MaxTemperature]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MaxTemperature]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[MinTemperature]"
+                      cachedDataType="i4"
+                      cachedName="MinTemperature"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[MinTemperature]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MinTemperature]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[FogFlag]"
+                      cachedDataType="i4"
+                      cachedName="FogFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[FogFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[FogFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[ThunderFlag]"
+                      cachedDataType="i4"
+                      cachedName="ThunderFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[ThunderFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[ThunderFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[HailFlag]"
+                      cachedDataType="i4"
+                      cachedName="HailFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[HailFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HailFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[DustFlag]"
+                      cachedDataType="i4"
+                      cachedName="DustFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[DustFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[DustFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[HighWindFlag]"
+                      cachedDataType="i4"
+                      cachedName="HighWindFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[HighWindFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HighWindFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[RainFlag]"
+                      cachedDataType="i4"
+                      cachedName="RainFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[RainFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[RainFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[SnowFlag]"
+                      cachedDataType="i4"
+                      cachedName="SnowFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[SnowFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2].Columns[UnknownPrecipFlag]"
+                      cachedDataType="i4"
+                      cachedName="UnknownPrecipFlag"
+                      lineageId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output].Columns[UnknownPrecipFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[UnknownPrecipFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 5]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 5">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[GameID]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[GameID]"
+                      name="GameID" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[Precipitation]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[Precipitation]"
+                      name="Precipitation" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFall]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFall]"
+                      name="SnowFall" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowDepth]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowDepth]"
+                      name="SnowDepth" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MaxTemperature]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MaxTemperature]"
+                      name="MaxTemperature" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MinTemperature]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[MinTemperature]"
+                      name="MinTemperature" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[FogFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[FogFlag]"
+                      name="FogFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[ThunderFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[ThunderFlag]"
+                      name="ThunderFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HailFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HailFlag]"
+                      name="HailFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[DustFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[DustFlag]"
+                      name="DustFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HighWindFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[HighWindFlag]"
+                      name="HighWindFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[RainFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[RainFlag]"
+                      name="RainFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[SnowFlag]"
+                      name="SnowFlag" />
+                    <outputColumn
+                      refId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[UnknownPrecipFlag]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1].Columns[UnknownPrecipFlag]"
+                      name="UnknownPrecipFlag" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Union All Weather.Paths[Flat File Source Output1]"
+              endId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DFL - Union All Weather\FFS - Weather Data 1.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFL - Union All Weather.Paths[Flat File Source Output]"
+              endId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Inputs[Union All Input 2]"
+              name="Flat File Source Output"
+              startId="Package\DFL - Union All Weather\FFS - Weather Data 2.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFL - Union All Weather.Paths[Union All Output 1]"
+              endId="Package\DFL - Union All Weather\DST - Save Weather Data.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFL - Union All Weather\UNI - Combine Weather Data.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="159.2,62.4"
+          Id="Package\DFL - Union All Weather"
+          TopLeft="255,106" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFL - Union All Weather">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157.6,51.2"
+          Id="Package\DFL - Union All Weather\FFS - Weather Data 1"
+          TopLeft="41.75,30.25" />
+        <NodeLayout
+          Size="157.6,51.2"
+          Id="Package\DFL - Union All Weather\UNI - Combine Weather Data"
+          TopLeft="136.5,131" />
+        <NodeLayout
+          Size="157.6,51.2"
+          Id="Package\DFL - Union All Weather\DST - Save Weather Data"
+          TopLeft="136.5,213" />
+        <NodeLayout
+          Size="157.6,51.2"
+          Id="Package\DFL - Union All Weather\FFS - Weather Data 2"
+          TopLeft="235,30.25" />
+        <EdgeLayout
+          Id="Package\DFL - Union All Weather.Paths[Union All Output 1]"
+          TopLeft="215.471666666667,182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Union All Weather.Paths[Flat File Source Output1]"
+          TopLeft="120.721666666667,81.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.7594444444444,49.75"
+              Start="0,0"
+              End="69.7594444444444,42.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.550645592629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.550645592629"
+                    Point2="0,29.550645592629"
+                    Point3="4,29.550645592629" />
+                  <mssgle:LineSegment
+                    End="65.7594444444444,29.550645592629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.7594444444444,29.550645592629"
+                    Point2="69.7594444444444,29.550645592629"
+                    Point3="69.7594444444444,33.550645592629" />
+                  <mssgle:LineSegment
+                    End="69.7594444444444,42.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Union All Weather.Paths[Flat File Source Output]"
+          TopLeft="313.971666666667,81.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.5094444444443,49.75"
+              Start="0,0"
+              End="-73.5094444444443,42.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.550645592629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.550645592629"
+                    Point2="0,29.550645592629"
+                    Point3="-4,29.550645592629" />
+                  <mssgle:LineSegment
+                    End="-69.5094444444443,29.550645592629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-69.5094444444443,29.550645592629"
+                    Point2="-73.5094444444443,29.550645592629"
+                    Point3="-73.5094444444443,33.550645592629" />
+                  <mssgle:LineSegment
+                    End="-73.5094444444443,42.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Union All Weather\DST - Save Weather Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

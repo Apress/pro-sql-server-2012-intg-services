@@ -1,0 +1,3117 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2011 10:44:05 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SQL11"
+  DTS:CreatorName="SQL11\Admin"
+  DTS:DTSID="{36EABEE1-A207-40B2-8DE1-0E7BF8B72A10}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CH8_Aggregate_Demo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{2726C80B-4055-4AE0-B0A1-792039E2A961}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{739C6A39-67F1-47C6-8FD3-8F2C6F5DB8D3}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SampleData\AviationData.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventId"
+              DTS:DTSID="{0D8AFC84-3C79-4540-8D91-96C6DAFBC019}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InvestigationType"
+              DTS:DTSID="{3EB81CC8-A407-4668-A004-A3F6BA83DC65}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccidentNumber"
+              DTS:DTSID="{EC91BA03-5805-4F80-9EFB-36802239429F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventDate"
+              DTS:DTSID="{E335B51F-37C6-46EA-9996-F161A195E302}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventMonth"
+              DTS:DTSID="{6EA1BCE6-19C4-4660-BBC0-C60323E3AF3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventYear"
+              DTS:DTSID="{4C1D848E-5416-464E-866A-5D6B56402FAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{CCA6A283-5A81-4E5F-9563-7A320DF2554A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{3FA23E88-848D-4393-A23E-47EB9EEF963F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{05B2F78C-E937-4C2B-8223-6539C720A35D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Latitude"
+              DTS:DTSID="{14B45F30-2520-48C4-8997-E71E079C4B9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Longitude"
+              DTS:DTSID="{1676B0A9-F66A-4E0F-AE7A-85F855C63AA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AirportCode"
+              DTS:DTSID="{B9816E6D-DB40-4D92-BBF1-AB081B4CD915}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AirportName"
+              DTS:DTSID="{1FA5CEE2-9C89-47BD-BB14-8F41874AE525}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InjurySeverity"
+              DTS:DTSID="{18D2EBDE-D57F-4EBF-823F-5975CDB46D5C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AircraftDamage"
+              DTS:DTSID="{75095FF3-8860-4D40-95EC-2BB9A5A9BBEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AircraftCategory"
+              DTS:DTSID="{7D95B33D-7EE0-475E-9A73-A11BBF05955C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationNumber"
+              DTS:DTSID="{B06C5E5E-244D-4797-8394-C3FF37D5A8FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Make"
+              DTS:DTSID="{799CD819-8F9C-4E11-9371-BB15FA663ED5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model"
+              DTS:DTSID="{60E2EE28-E9C3-4B17-BC79-D0ADB8FB2878}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AmateurBuilt"
+              DTS:DTSID="{7A82138C-914C-4976-8A89-569A505AF24E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumberofEngines"
+              DTS:DTSID="{531506F4-ECBF-4CCC-BA30-A0FE2FDBC74E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EngineType"
+              DTS:DTSID="{E7164AEF-59B8-4C04-97D2-4A32DAE824D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FARDescription"
+              DTS:DTSID="{4E79071C-5265-48E6-A8EE-6443F004D30E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Schedule"
+              DTS:DTSID="{069C8756-3D80-4A80-ACC8-E52F9E24AC64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PurposeofFlight"
+              DTS:DTSID="{7B550AD7-6E37-4B68-BB05-21C11F876D0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AirCarrier"
+              DTS:DTSID="{32723FA8-8A0D-4A39-9BF7-5C037EF3701F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalFatalInjuries"
+              DTS:DTSID="{D90DA025-E6DF-42EB-9D7A-A18D5D9EB38A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalSeriousInjuries"
+              DTS:DTSID="{6D418A64-7C75-4870-B6CD-36597E59A2D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalMinorInjuries"
+              DTS:DTSID="{8C8AB5A6-6028-47DD-A84E-CC581FEDBFD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalUninjured"
+              DTS:DTSID="{1CCB5C0E-DC25-49B4-8B83-9A922D866A52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WeatherCondition"
+              DTS:DTSID="{1DF85D5D-6212-4098-8501-3940615C2E02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BroadPhaseofFlight"
+              DTS:DTSID="{4639EB52-2773-4D17-B067-56EA861BAFE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReportStatus"
+              DTS:DTSID="{32644DEA-4A44-4AE0-97E8-90461C12B786}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PublicationDate"
+              DTS:DTSID="{A6C28BBE-916E-4E27-B518-4C4F37624E21}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample Database]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{12CDAFAB-3D72-401B-859E-2AAE8A2EC9B9}"
+      DTS:ObjectName="Sample Database">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=SampleDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Aggregate Flow"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BAFA8866-84DA-422E-BFBF-4DCD425087E8}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Aggregate Flow"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data"
+              componentClassID="{5B201335-B360-485C-BB93-75C34E09B3D3}"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="AGG - Aggregate Data"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[TotalMinorInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalMinorInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[TotalFatalInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalFatalInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[TotalSeriousInjuries]"
+                      cachedDataType="i4"
+                      cachedName="TotalSeriousInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[TotalUninjured]"
+                      cachedDataType="i4"
+                      cachedName="TotalUninjured"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1].Columns[EventMonth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="EventMonth"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth]"
+                  name="AggByMonth">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[EventYear]"
+                      name="EventYear">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[EventMonth]"
+                      name="EventMonth">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalSeriousInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalSeriousInjuries]"
+                      name="TotalSeriousInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalUninjured]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalUninjured]"
+                      name="TotalUninjured">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalFatalInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalFatalInjuries]"
+                      name="TotalFatalInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalMinorInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalMinorInjuries]"
+                      name="TotalMinorInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState]"
+                  name="AggByState">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[State]"
+                      name="State">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventYear]"
+                      name="EventYear">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventMonth]"
+                      name="EventMonth">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalFatalInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalFatalInjuries]"
+                      name="TotalFatalInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalSeriousInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalSeriousInjuries]"
+                      name="TotalSeriousInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalMinorInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalMinorInjuries]"
+                      name="TotalMinorInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalUninjured]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalUninjured]"
+                      name="TotalUninjured">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Agg By Month"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AviationByMonth]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[EventYear]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].Columns[EventMonth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="EventMonth"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[EventMonth]"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[EventMonth]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].Columns[TotalSeriousInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalSeriousInjuries"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalSeriousInjuries]"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalSeriousInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].Columns[TotalUninjured]"
+                      cachedDataType="i8"
+                      cachedName="TotalUninjured"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalUninjured]"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalUninjured]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].Columns[TotalFatalInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalFatalInjuries"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalFatalInjuries]"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalFatalInjuries]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].Columns[TotalMinorInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalMinorInjuries"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth].Columns[TotalMinorInjuries]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="EventMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalSeriousInjuries]"
+                      dataType="i8"
+                      name="TotalSeriousInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalUninjured]"
+                      dataType="i8"
+                      name="TotalUninjured" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalFatalInjuries]"
+                      dataType="i8"
+                      name="TotalFatalInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input].ExternalColumns[TotalMinorInjuries]"
+                      dataType="i8"
+                      name="TotalMinorInjuries" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Save Pivoted Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AviationPivot]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sample Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sample Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Jan]"
+                      cachedDataType="i8"
+                      cachedName="Jan"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Jan]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jan]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Feb]"
+                      cachedDataType="i8"
+                      cachedName="Feb"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Feb]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Feb]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Mar]"
+                      cachedDataType="i8"
+                      cachedName="Mar"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Mar]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Mar]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Apr]"
+                      cachedDataType="i8"
+                      cachedName="Apr"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Apr]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Apr]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[May]"
+                      cachedDataType="i8"
+                      cachedName="May"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[May]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[May]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Jun]"
+                      cachedDataType="i8"
+                      cachedName="Jun"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Jun]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jun]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Jul]"
+                      cachedDataType="i8"
+                      cachedName="Jul"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Jul]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jul]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Aug]"
+                      cachedDataType="i8"
+                      cachedName="Aug"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Aug]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Aug]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Sep]"
+                      cachedDataType="i8"
+                      cachedName="Sep"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Sep]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Sep]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Oct]"
+                      cachedDataType="i8"
+                      cachedName="Oct"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Oct]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Oct]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Nov]"
+                      cachedDataType="i8"
+                      cachedName="Nov"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Nov]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Nov]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[Dec]"
+                      cachedDataType="i8"
+                      cachedName="Dec"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Dec]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Dec]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[EventYear]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Jan]"
+                      dataType="i8"
+                      name="Jan" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Feb]"
+                      dataType="i8"
+                      name="Feb" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Mar]"
+                      dataType="i8"
+                      name="Mar" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Apr]"
+                      dataType="i8"
+                      name="Apr" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[May]"
+                      dataType="i8"
+                      name="May" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Jun]"
+                      dataType="i8"
+                      name="Jun" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Jul]"
+                      dataType="i8"
+                      name="Jul" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Aug]"
+                      dataType="i8"
+                      name="Aug" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Sep]"
+                      dataType="i8"
+                      name="Sep" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Oct]"
+                      dataType="i8"
+                      name="Oct" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Nov]"
+                      dataType="i8"
+                      name="Nov" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[Dec]"
+                      dataType="i8"
+                      name="Dec" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month"
+              componentClassID="{AEB2AFAE-2201-48B1-B290-42BB8C9149DD}"
+              contactInfo="Pivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Compacts an input data flow by pivoting it on a column value, making it less normalized. The input data should be sorted by the pivot column because a pivot happens each time data in the pivot column changes. Note: duplicate rows will cause this transformation to fail."
+              name="PVT - Pivot by State and Month"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Causes the Pivot Transform to ignore rows containing unrecognized values in the Pivot Key column and to report the complete list of unmatched values at the end of DataFlow execution. Useful for collecting a list of values from input rows that can be used to automatically generate output columns."
+                  name="PassThroughUnmatchedPivotKeys">false</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input]"
+                  hasSideEffects="true"
+                  name="Pivot Default Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventYear]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input].Columns[EventMonth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="EventMonth"
+                      cachedSortKeyPosition="3"
+                      errorOrTruncationOperation="Pivot Key Lookup"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventMonth]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input].Columns[TotalMinorInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalMinorInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output]"
+                  name="Pivot Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jan]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jan]"
+                      name="Jan">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">01</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Feb]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Feb]"
+                      name="Feb">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">02</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Mar]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Mar]"
+                      name="Mar">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">03</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Apr]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Apr]"
+                      name="Apr">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">04</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[May]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[May]"
+                      name="May">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">05</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jun]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jun]"
+                      name="Jun">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">06</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jul]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Jul]"
+                      name="Jul">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">07</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Aug]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Aug]"
+                      name="Aug">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">08</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Sep]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Sep]"
+                      name="Sep">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">09</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Oct]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Oct]"
+                      name="Oct">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">10</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Nov]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Nov]"
+                      name="Nov">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">11</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Dec]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[Dec]"
+                      name="Dec">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">12</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[State]"
+                      name="State">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output].Columns[EventYear]"
+                      name="EventYear">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventYear]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Pivot Error Output"
+                  synchronousInputId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Aggregate Flow\SRC - Aviation Data"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC - Aviation Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventId]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventId]"
+                      name="EventId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InvestigationType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InvestigationType]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InvestigationType]"
+                      name="InvestigationType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AccidentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AccidentNumber]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AccidentNumber]"
+                      name="AccidentNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventDate]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventDate]"
+                      name="EventDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventMonth]"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventMonth]"
+                      name="EventMonth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventYear]"
+                      length="4"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EventYear]"
+                      name="EventYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      length="100"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportCode]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportCode]"
+                      name="AirportCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportName]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirportName]"
+                      name="AirportName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InjurySeverity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InjurySeverity]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[InjurySeverity]"
+                      name="InjurySeverity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftDamage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftDamage]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftDamage]"
+                      name="AircraftDamage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftCategory]"
+                      length="100"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AircraftCategory]"
+                      name="AircraftCategory"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[RegistrationNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationNumber]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[RegistrationNumber]"
+                      name="RegistrationNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Make]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Make]"
+                      name="Make"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Model]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Model]"
+                      name="Model"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AmateurBuilt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AmateurBuilt]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AmateurBuilt]"
+                      name="AmateurBuilt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[NumberofEngines]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[NumberofEngines]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[NumberofEngines]"
+                      name="NumberofEngines"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EngineType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EngineType]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[EngineType]"
+                      name="EngineType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[FARDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[FARDescription]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[FARDescription]"
+                      name="FARDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Schedule]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[Schedule]"
+                      name="Schedule"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PurposeofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PurposeofFlight]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PurposeofFlight]"
+                      name="PurposeofFlight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirCarrier]"
+                      length="100"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[AirCarrier]"
+                      name="AirCarrier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalFatalInjuries]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalFatalInjuries]"
+                      name="TotalFatalInjuries"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalSeriousInjuries]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalSeriousInjuries]"
+                      name="TotalSeriousInjuries"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalMinorInjuries]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalMinorInjuries]"
+                      name="TotalMinorInjuries"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalUninjured]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[TotalUninjured]"
+                      name="TotalUninjured"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[WeatherCondition]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[WeatherCondition]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[WeatherCondition]"
+                      name="WeatherCondition"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[BroadPhaseofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[BroadPhaseofFlight]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[BroadPhaseofFlight]"
+                      name="BroadPhaseofFlight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[ReportStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[ReportStatus]"
+                      length="50"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[ReportStatus]"
+                      name="ReportStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PublicationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PublicationDate]"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].Columns[PublicationDate]"
+                      name="PublicationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EventId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InvestigationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InvestigationType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AccidentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccidentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventDate]"
+                      dataType="date"
+                      name="EventDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="EventMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="EventYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirportName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AirportName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[InjurySeverity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="InjurySeverity" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftDamage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AircraftDamage" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AircraftCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AircraftCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Make" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Model" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AmateurBuilt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AmateurBuilt" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[NumberofEngines]"
+                      dataType="i4"
+                      name="NumberofEngines" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[EngineType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EngineType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[FARDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FARDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Schedule" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PurposeofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PurposeofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[AirCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AirCarrier" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalFatalInjuries]"
+                      dataType="i4"
+                      name="TotalFatalInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalSeriousInjuries]"
+                      dataType="i4"
+                      name="TotalSeriousInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalMinorInjuries]"
+                      dataType="i4"
+                      name="TotalMinorInjuries" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[TotalUninjured]"
+                      dataType="i4"
+                      name="TotalUninjured" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[WeatherCondition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeatherCondition" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[BroadPhaseofFlight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BroadPhaseofFlight" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[ReportStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ReportStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output].ExternalColumns[PublicationDate]"
+                      dataType="date"
+                      name="PublicationDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SRT - Sort by State and Month"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[EventYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="EventYear"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventYear]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[EventMonth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="EventMonth"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventMonth]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[TotalFatalInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalFatalInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalFatalInjuries]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[TotalSeriousInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalSeriousInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalSeriousInjuries]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[TotalMinorInjuries]"
+                      cachedDataType="i8"
+                      cachedName="TotalMinorInjuries"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalMinorInjuries]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input].Columns[TotalUninjured]"
+                      cachedDataType="i8"
+                      cachedName="TotalUninjured"
+                      lineageId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalUninjured]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[State]"
+                      name="State"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[State]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventYear]"
+                      name="EventYear"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventYear]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[EventMonth]"
+                      name="EventMonth"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[EventMonth]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalFatalInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalFatalInjuries]"
+                      name="TotalFatalInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalFatalInjuries]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalSeriousInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalSeriousInjuries]"
+                      name="TotalSeriousInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalSeriousInjuries]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalMinorInjuries]"
+                      name="TotalMinorInjuries">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalMinorInjuries]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalUninjured]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output].Columns[TotalUninjured]"
+                      name="TotalUninjured">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState].Columns[TotalUninjured]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Aggregate Flow.Paths[AggByMonth]"
+              endId="Package\DFL - Aggregate Flow\DST - Save Agg By Month.Inputs[OLE DB Destination Input]"
+              name="AggByMonth"
+              startId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByMonth]" />
+            <path
+              refId="Package\DFL - Aggregate Flow.Paths[AggByState]"
+              endId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Inputs[Sort Input]"
+              name="AggByState"
+              startId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Outputs[AggByState]" />
+            <path
+              refId="Package\DFL - Aggregate Flow.Paths[Flat File Source Output]"
+              endId="Package\DFL - Aggregate Flow\AGG - Aggregate Data.Inputs[Aggregate Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DFL - Aggregate Flow\SRC - Aviation Data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFL - Aggregate Flow.Paths[Pivot Default Output]"
+              endId="Package\DFL - Aggregate Flow\DST - Save Pivoted Data.Inputs[OLE DB Destination Input]"
+              name="Pivot Default Output"
+              startId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Outputs[Pivot Default Output]" />
+            <path
+              refId="Package\DFL - Aggregate Flow.Paths[Sort Output]"
+              endId="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month.Inputs[Pivot Default Input]"
+              name="Sort Output"
+              startId="Package\DFL - Aggregate Flow\SRT - Sort by State and Month.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163.2,52"
+          Id="Package\DFL - Aggregate Flow"
+          TopLeft="332,160" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFL - Aggregate Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Aggregate Flow\DST - Save Agg By Month"
+          TopLeft="18.611111111111,195.125" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Aggregate Flow\SRC - Aviation Data"
+          TopLeft="18.611111111111,26.75" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Aggregate Flow\PVT - Pivot by State and Month"
+          TopLeft="246.777777777778,113.125" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Aggregate Flow\DST - Save Pivoted Data"
+          TopLeft="246.777777777778,195.125" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Aggregate Flow\SRT - Sort by State and Month"
+          TopLeft="246.777777777778,26.75" />
+        <NodeLayout
+          Size="163.63,53"
+          Id="Package\DFL - Aggregate Flow\AGG - Aggregate Data"
+          TopLeft="18.611111111111,113.125" />
+        <EdgeLayout
+          Id="Package\DFL - Aggregate Flow.Paths[Sort Output]"
+          TopLeft="354.531111111111,79.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-25.9383333333333,33.375"
+              Start="0,0"
+              End="-25.9383333333333,25.875">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.54391151727896" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.54391151727896"
+                    Point2="0,13.543911517279"
+                    Point3="-4,13.543911517279" />
+                  <mssgle:LineSegment
+                    End="-21.9383333333333,13.543911517279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.9383333333333,13.543911517279"
+                    Point2="-25.9383333333333,13.543911517279"
+                    Point3="-25.9383333333333,17.543911517279" />
+                  <mssgle:LineSegment
+                    End="-25.9383333333333,25.875" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Aggregate Flow.Paths[Pivot Default Output]"
+          TopLeft="328.592777777778,166.125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Aggregate Flow.Paths[Flat File Source Output]"
+          TopLeft="100.426111111111,79.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-25.9383333333333,33.375"
+              Start="0,0"
+              End="-25.9383333333333,25.875">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.831088482721" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.831088482721"
+                    Point2="0,19.831088482721"
+                    Point3="-4,19.831088482721" />
+                  <mssgle:LineSegment
+                    End="-21.9383333333333,19.831088482721" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.9383333333333,19.831088482721"
+                    Point2="-25.9383333333333,19.831088482721"
+                    Point3="-25.9383333333333,23.831088482721" />
+                  <mssgle:LineSegment
+                    End="-25.9383333333333,25.875" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Aggregate Flow.Paths[AggByState]"
+          TopLeft="126.364444444444,113.125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="176.29,-33.375"
+              Start="0,0"
+              End="176.29,-25.875">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-12.6875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-12.6875"
+                    Point2="0,-16.6875"
+                    Point3="4,-16.6875" />
+                  <mssgle:LineSegment
+                    End="172.29,-16.6875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.29,-16.6875"
+                    Point2="176.29,-16.6875"
+                    Point3="176.29,-20.6875" />
+                  <mssgle:LineSegment
+                    End="176.29,-25.875" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Aggregate Flow.Paths[AggByMonth]"
+          TopLeft="100.426111111111,166.125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Aggregate Flow\DST - Save Pivoted Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Aggregate Flow\DST - Save Agg By Month">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
